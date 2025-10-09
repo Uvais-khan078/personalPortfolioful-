@@ -6,7 +6,7 @@ const Skills = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001';
+    const apiBase = 'https://personal-portfolioful.vercel.app';
 
     // Fetch skills data
     fetch(`${apiBase}/api/skills`)
