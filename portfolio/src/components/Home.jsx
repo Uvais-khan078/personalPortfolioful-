@@ -1,0 +1,315 @@
+import { useEffect, useState } from 'react';
+import feather from 'feather-icons';
+import ProjectModal from './ProjectModal';
+
+const Home = () => {
+  const [personal, setPersonal] = useState({});
+  const [education, setEducation] = useState([]);
+  const [social, setSocial] = useState({});
+  const [projects, setProjects] = useState([]);
+  const [blogs, setBlogs] = useState([]);
+  const [skills, setSkills] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    feather.replace();
+
+    // Fetch data
+    Promise.all([
+      fetch('http://localhost:5001/api/personal'),
+      fetch('http://localhost:5001/api/education'),
+      fetch('http://localhost:5001/api/social'),
+      fetch('http://localhost:5001/api/projects'),
+      fetch('http://localhost:5001/api/blogs'),
+      fetch('http://localhost:5001/api/skills')
+    ])
+    .then(responses => Promise.all(responses.map(r => r.json())))
+    .then(([personalData, educationData, socialData, projectsData, blogsData, skillsData]) => {
+      setPersonal(personalData);
+      setEducation(educationData);
+      setSocial(socialData);
+      setProjects(projectsData);
+      setBlogs(blogsData);
+      setSkills(skillsData);
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+      setLoading(false);
+    });
+  }, []);
+
+  return (
+    <>
+      {/* Hero Section */}
+      <section id="home" className="hero-bg text-white min-h-screen flex items-center relative overflow-hidden" data-aos="fade">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-24">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-12">
+            <div className="md:w-1/3" data-aos="fade-right">
+              <img src={personal.image} alt="Profile" className="rounded-full w-64 h-64 object-cover mx-auto shadow-lg border-4 border-white" />
+            </div>
+            <div className="md:w-2/3 text-center md:text-left">
+              <h1 className="text-5xl md:text-6xl font-bold mb-4" data-aos="fade-up">Hi, I'm <span className="text-indigo-200">{personal.name}</span></h1>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-8" data-aos="fade-up" data-aos-delay="100">{personal.title}</h2>
+              <div className="flex justify-center md:justify-start space-x-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="#projects" className="px-6 py-3 bg-white text-indigo-600 rounded-full font-medium hover:bg-indigo-100 transition">View My Work</a>
+                <a href="#contact" className="px-6 py-3 border border-white text-white rounded-full font-medium hover:bg-white hover:text-indigo-600 transition">Contact Me</a>
+              </div>
+            </div>
+          </div>
+          <div className="absolute bottom-10 left-0 right-0 text-center">
+            <a href="#about" className="animate-bounce inline-block">
+              <i data-feather="chevron-down" className="w-10 h-10 text-white"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">About Me</h2>
+            <div className="w-20 h-1 bg-indigo-600 mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
+            <p className="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">{personal.description}</p>
+          </div>
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="md:w-1/3 mb-10 md:mb-0" data-aos="fade-right">
+              <img src={personal.image} alt="Profile" className="rounded-full w-64 h-64 object-cover mx-auto shadow-lg" />
+            </div>
+            <div className="md:w-2/3 md:pl-16" data-aos="fade-left">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Who am I?</h3>
+              <p className="text-gray-600 mb-6">{personal.aboutDescription}</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-medium text-gray-800 mb-2">Personal Info</h4>
+                  <ul className="text-gray-600 space-y-2">
+                    <li className="flex items-center"><i data-feather="user" className="w-4 h-4 mr-2"></i> <span>{personal.name}</span></li>
+                    <li className="flex items-center"><i data-feather="map-pin" className="w-4 h-4 mr-2"></i> <span>{personal.location}</span></li>
+                    <li className="flex items-center"><i data-feather="mail" className="w-4 h-4 mr-2"></i> <span>{personal.email}</span></li>
+                    <li className="flex items-center"><i data-feather="phone" className="w-4 h-4 mr-2"></i> <span>{personal.phone}</span></li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-medium text-gray-800 mb-2">My Hobbies</h4>
+                  <ul className="text-gray-600 space-y-2">
+                    {personal.hobbies && personal.hobbies.map((hobby, index) => (
+                      <li key={index} className="flex items-center">
+                        <i data-feather={hobby.icon} className="w-4 h-4 mr-2"></i> <span>{hobby.name}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <a href="#" className="inline-block mt-8 px-6 py-3 bg-indigo-600 text-white rounded-full font-medium hover:bg-indigo-700 transition">Download CV</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Education & Experience Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">Education & Experience</h2>
+            <div className="w-20 h-1 bg-indigo-600 mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
+            <p className="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">My academic background and professional journey.</p>
+          </div>
+          
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="border-l-2 border-indigo-600 absolute h-full left-1/2 transform -translate-x-1/2"></div>
+            
+            {/* Timeline items */}
+            <div className="space-y-12">
+              {education.map((item, index) => (
+                <div
+                  key={item.id}
+                  className={`relative ${index % 2 === 0 ? 'md:ml-auto' : ''}`}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
+                  <div className={`bg-white p-6 rounded-lg shadow-md relative z-10 md:w-1/2 ${index % 2 === 0 ? 'ml-auto' : ''}`}>
+                    <div className="flex items-center mb-2">
+                      <div className="bg-indigo-100 p-2 rounded-full mr-4">
+                        <i data-feather={item.type === 'education' ? 'book' : 'briefcase'} className="w-5 h-5 text-indigo-600"></i>
+                      </div>
+                      <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
+                    </div>
+                    <p className="text-gray-600 mb-2">{item.institution} • {item.duration}</p>
+                    <p className="text-gray-600">{item.description}</p>
+                  </div>
+                  <div className="hidden md:block absolute top-6 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-indigo-600 rounded-full z-20"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">My Skills</h2>
+            <div className="w-20 h-1 bg-indigo-600 mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
+            <p className="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">I've worked with a variety of technologies in the web development world.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div data-aos="fade-right">
+              <h3 className="text-xl font-semibold text-gray-800 mb-6">Technical Skills</h3>
+              <div className="space-y-6">
+                {skills.technical && skills.technical.map((skill, index) => (
+                  <div key={index}>
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium text-gray-700">{skill.name}</span>
+                      <span className="text-gray-600">{skill.percentage}%</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="bg-indigo-600 h-2 rounded-full skill-bar" style={{width: `${skill.percentage}%`}}></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div data-aos="fade-left">
+              <h3 className="text-xl font-semibold text-gray-800 mb-6">Professional Skills</h3>
+              <div className="space-y-6">
+                {skills.professional && skills.professional.map((skill, index) => (
+                  <div key={index}>
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium text-gray-700">{skill.name}</span>
+                      <span className="text-gray-600">{skill.percentage}%</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="bg-indigo-600 h-2 rounded-full skill-bar" style={{width: `${skill.percentage}%`}}></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">My Projects</h2>
+            <div className="w-20 h-1 bg-indigo-600 mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
+            <p className="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">Here are some of my recent projects that showcase my skills and expertise.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.slice(0, 3).map((project, index) => (
+              <div key={project.id} className="bg-white rounded-lg overflow-hidden shadow-md project-card transition duration-300" data-aos="fade-up" data-aos-delay={index * 100}>
+                <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h3>
+                  <p className="text-gray-600 mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span key={techIndex} className="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">{tech}</span>
+                    ))}
+                  </div>
+                  <a href={project.link} className="text-indigo-600 font-medium hover:text-indigo-800 transition">View Project →</a>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-12" data-aos="fade-up">
+            <a href="/projects" className="px-6 py-3 border border-indigo-600 text-indigo-600 rounded-full font-medium hover:bg-indigo-600 hover:text-white transition">View All Projects</a>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4" data-aos="fade-up">Get In Touch</h2>
+            <div className="w-20 h-1 bg-indigo-600 mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
+            <p className="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">Have a project in mind or want to discuss potential opportunities? Feel free to reach out!</p>
+          </div>
+          <div className="flex flex-col md:flex-row gap-12">
+            <div className="md:w-1/2" data-aos="fade-right">
+              <form className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-gray-700 mb-2">Your Name</label>
+                  <input type="text" id="name" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent" />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-gray-700 mb-2">Email Address</label>
+                  <input type="email" id="email" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent" />
+                </div>
+                <div>
+                  <label htmlFor="subject" className="block text-gray-700 mb-2">Subject</label>
+                  <input type="text" id="subject" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent" />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-gray-700 mb-2">Message</label>
+                  <textarea id="message" rows="5" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent"></textarea>
+                </div>
+                <button type="submit" className="px-6 py-3 bg-indigo-600 text-white rounded-full font-medium hover:bg-indigo-700 transition w-full">Send Message</button>
+              </form>
+            </div>
+            <div className="md:w-1/2" data-aos="fade-left">
+              <div className="bg-white p-8 rounded-lg shadow-md h-full">
+                <h3 className="text-xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+                <div className="space-y-6">
+                  <div className="flex items-start">
+                    <div className="bg-indigo-100 p-3 rounded-full mr-4">
+                      <i data-feather="mail" className="w-5 h-5 text-indigo-600"></i>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-gray-800 mb-1">Email</h4>
+                      <p className="text-gray-600">{personal.email}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="bg-indigo-100 p-3 rounded-full mr-4">
+                      <i data-feather="phone" className="w-5 h-5 text-indigo-600"></i>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-gray-800 mb-1">Phone</h4>
+                      <p className="text-gray-600">{personal.phone}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="bg-indigo-100 p-3 rounded-full mr-4">
+                      <i data-feather="map-pin" className="w-5 h-5 text-indigo-600"></i>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-gray-800 mb-1">Location</h4>
+                      <p className="text-gray-600">{personal.location}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-8">
+                  <h4 className="font-medium text-gray-800 mb-4">Follow Me</h4>
+                  <div className="flex space-x-4">
+                    <a href={social.github} className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
+                      <i data-feather="github" className="w-5 h-5 text-gray-700"></i>
+                    </a>
+                    <a href={social.twitter} className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
+                      <i data-feather="twitter" className="w-5 h-5 text-gray-700"></i>
+                    </a>
+                    <a href={social.linkedin} className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
+                      <i data-feather="linkedin" className="w-5 h-5 text-gray-700"></i>
+                    </a>
+                    <a href={social.instagram} className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
+                      <i data-feather="instagram" className="w-5 h-5 text-gray-700"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+          </>
+  );
+};
+
+export default Home;

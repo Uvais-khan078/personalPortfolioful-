@@ -1,0 +1,182 @@
+{
+  "personal": {
+    "name": "Uvais khan",
+    "title": "Frontend Developer & cybersecurity student",
+    "description": "I'm a passionate developer who loves creating beautiful and functional digital experiences.",
+    "aboutDescription": "I'm a creative frontend developer with 3+ years of experience building responsive and user-friendly websites. I specialize in modern JavaScript frameworks and have a keen eye for design details.",
+    "skillsDescription": "I've worked with a variety of technologies in the web development world.",
+    "profileImage": "http://static.photos/people/640x360/1",
+    "location": "City, Country",
+    "email": "your.email@example.com",
+    "phone": "+123 456 7890",
+    "hobbies": [
+      "Music Production",
+      "Photography",
+      "Reading",
+      "Traveling"
+    ]
+  },
+  "education": [
+    {
+      "type": "education",
+      "title": "Master's Degree",
+      "subtitle": "University Name • 2020-2022",
+      "description": "Specialized in Computer Science with focus on Human-Computer Interaction."
+    },
+    {
+      "type": "experience",
+      "title": "Frontend Developer",
+      "subtitle": "Company Name • 2019-Present",
+      "description": "Developed responsive web applications using React, Vue.js and modern JavaScript frameworks."
+    },
+    {
+      "type": "education",
+      "title": "Bachelor's Degree",
+      "subtitle": "University Name • 2016-2020",
+      "description": "Majored in Computer Science with minor in Design."
+    },
+    {
+      "type": "experience",
+      "title": "UI/UX Intern",
+      "subtitle": "Startup Name • Summer 2018",
+      "description": "Designed user interfaces and conducted usability testing for mobile applications."
+    }
+  ],
+  "skills": {
+    "technical": [
+      { "name": "HTML/CSS", "percentage": 95 },
+      { "name": "JavaScript", "percentage": 90 },
+      { "name": "React", "percentage": 85 },
+      { "name": "Node.js", "percentage": 80 }
+    ],
+    "professional": [
+      { "name": "UI/UX Design", "percentage": 90 },
+      { "name": "Communication", "percentage": 85 },
+      { "name": "Team Work", "percentage": 95 },
+      { "name": "Project Management", "percentage": 75 }
+    ]
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "E-commerce Website",
+      "description": "A fully responsive e-commerce platform built with React and Node.js.",
+      "technologies": ["React", "Node.js", "MongoDB"],
+      "image": "http://static.photos/technology/640x360/1",
+      "demoLink": "#",
+      "githubLink": "#"
+    },
+    {
+      "id": 2,
+      "title": "Task Management App",
+      "description": "A productivity application for managing tasks and projects with team collaboration.",
+      "technologies": ["Vue.js", "Firebase", "Tailwind CSS"],
+      "image": "http://static.photos/technology/640x360/2",
+      "demoLink": "#",
+      "githubLink": "#"
+    },
+    {
+      "id": 3,
+      "title": "Portfolio Website",
+      "description": "A minimalist portfolio website for a photographer with image gallery.",
+      "technologies": ["HTML/CSS", "JavaScript", "GSAP"],
+      "image": "http://static.photos/technology/640x360/3",
+      "demoLink": "#",
+      "githubLink": "#"
+    },
+    {
+      "id": 4,
+      "title": "Weather Dashboard",
+      "description": "Real-time weather forecasting application with interactive maps.",
+      "technologies": ["React", "API", "Chart.js"],
+      "image": "http://static.photos/technology/640x360/4",
+      "demoLink": "#",
+      "githubLink": "#"
+    },
+    {
+      "id": 5,
+      "title": "Fitness Tracker",
+      "description": "Mobile-first fitness application with workout plans and progress tracking.",
+      "technologies": ["React Native", "Firebase", "Redux"],
+      "image": "http://static.photos/technology/640x360/5",
+      "demoLink": "#",
+      "githubLink": "#"
+    },
+    {
+      "id": 6,
+      "title": "Recipe Finder",
+      "description": "Interactive recipe database with search, filtering, and meal planning.",
+      "technologies": ["Vue.js", "API", "IndexedDB"],
+      "image": "http://static.photos/technology/640x360/6",
+      "demoLink": "#",
+      "githubLink": "#"
+    }
+  ],
+  "blogs": [
+    {
+      "id": 1,
+      "title": "Getting Started with React Hooks",
+      "date": "June 15, 2023",
+      "readTime": "5 min read",
+      "image": "http://static.photos/technology/640x360/7",
+      "excerpt": "Learn how to use React Hooks to simplify your functional components and manage state effectively."
+    },
+    {
+      "id": 2,
+      "title": "CSS Grid vs Flexbox",
+      "date": "May 28, 2023",
+      "readTime": "8 min read",
+      "image": "http://static.photos/technology/640x360/8",
+      "excerpt": "When to use CSS Grid and when to stick with Flexbox - a practical guide with examples."
+    },
+    {
+      "id": 3,
+      "title": "Optimizing Web Performance",
+      "date": "April 12, 2023",
+      "readTime": "6 min read",
+      "image": "http://static.photos/technology/640x360/9",
+      "excerpt": "Practical tips and techniques to make your websites load faster and perform better."
+    }
+  ],
+  "blogPosts": {
+    "1": {
+      "title": "Getting Started with React Hooks",
+      "date": "June 15, 2023",
+      "readTime": "5 min read",
+      "images": [
+        "http://static.photos/technology/640x360/7",
+        "http://static.photos/technology/640x360/10",
+        "http://static.photos/technology/640x360/11"
+      ],
+      "content": "React Hooks have revolutionized the way we write React components."
+    },
+    "2": {
+      "title": "CSS Grid vs Flexbox",
+      "date": "May 28, 2023",
+      "readTime": "8 min read",
+      "images": [
+        "http://static.photos/technology/640x360/8",
+        "http://static.photos/technology/640x360/12",
+        "http://static.photos/technology/640x360/13",
+        "http://static.photos/technology/640x360/14"
+      ],
+      "content": "CSS Grid and Flexbox are two powerful layout systems."
+    },
+    "3": {
+      "title": "Optimizing Web Performance",
+      "date": "April 12, 2023",
+      "readTime": "6 min read",
+      "images": [
+        "http://static.photos/technology/640x360/9",
+        "http://static.photos/technology/640x360/15"
+      ],
+      "content": "Web performance is crucial for user experience and SEO."
+    }
+  },
+  "social": {
+    "github": "#",
+    "twitter": "#",
+    "linkedin": "#",
+    "instagram": "#"
+  }
+}

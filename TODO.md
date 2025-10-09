@@ -1,0 +1,15 @@
+- [x] Create Python Flask backend (app.py) with API endpoints for all data
+- [x] Create requirements.txt for Python dependencies
+- [x] Update Home.jsx to fetch personal, education, skills data from API
+- [x] Update Projects.jsx to fetch projects from API (fixed port to 5001)
+- [x] Update Blog.jsx to fetch blogs from API (fixed port to 5001)
+- [x] Update About.jsx to fetch about data from API (fixed port to 5001)
+- [x] Update Skills.jsx to fetch skills from API (fixed port to 5001)
+- [x] Handle social links in Contact section (made dynamic)
+- [x] Update projects section to map over projects.slice(0,3)
+- [x] Update profile images in hero and about sections to use personal.image
+- [x] Make Layout.jsx dynamic (navbar name, footer name, description, social links, copyright)
+- [x] Make Contact.jsx dynamic (email, phone, location, social links)
+- [x] Make Skills.jsx dynamic (section description from personal.skillsDescription)
+- [x] Test backend API
+- [x] Test frontend with API
