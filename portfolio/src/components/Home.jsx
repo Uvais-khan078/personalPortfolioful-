@@ -14,14 +14,16 @@ const Home = () => {
   useEffect(() => {
     feather.replace();
 
+    const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001';
+
     // Fetch data
     Promise.all([
-      fetch('http://localhost:5001/api/personal'),
-      fetch('http://localhost:5001/api/education'),
-      fetch('http://localhost:5001/api/social'),
-      fetch('http://localhost:5001/api/projects'),
-      fetch('http://localhost:5001/api/blogs'),
-      fetch('http://localhost:5001/api/skills')
+      fetch(`${apiBase}/api/personal`),
+      fetch(`${apiBase}/api/education`),
+      fetch(`${apiBase}/api/social`),
+      fetch(`${apiBase}/api/projects`),
+      fetch(`${apiBase}/api/blogs`),
+      fetch(`${apiBase}/api/skills`)
     ])
     .then(responses => Promise.all(responses.map(r => r.json())))
     .then(([personalData, educationData, socialData, projectsData, blogsData, skillsData]) => {
