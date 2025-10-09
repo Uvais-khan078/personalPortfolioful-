@@ -4,7 +4,7 @@ import os
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, origins=[os.getenv('CLIENT_URL', '*')])  # Enable CORS for specified origin or all
+CORS(app, origins=[os.getenv('CLIENT_URL', '*')], supports_credentials=True)  # Enable CORS for specified origin or all with credentials support
 
 # Load data from data.json
 with open('data.json', 'r') as f:

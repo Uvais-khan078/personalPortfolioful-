@@ -6,14 +6,16 @@ const Skills = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001';
+
     // Fetch skills data
-    fetch('http://localhost:5001/api/skills')
+    fetch(`${apiBase}/api/skills`)
       .then(response => response.json())
       .then(data => setSkills(data))
       .catch(error => console.error('Error fetching skills:', error));
 
     // Fetch personal data for skills description
-    fetch('http://localhost:5001/api/personal')
+    fetch(`${apiBase}/api/personal`)
       .then(response => response.json())
       .then(data => {
         setPersonal(data);
