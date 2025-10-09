@@ -5,14 +5,16 @@ const Contact = () => {
   const [social, setSocial] = useState({});
 
   useEffect(() => {
+    const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://personal-portfolioful.vercel.app';
+
     // Fetch personal data
-    fetch('http://localhost:5001/api/personal')
+    fetch(`${apiBase}/api/personal`)
       .then(response => response.json())
       .then(data => setPersonal(data))
       .catch(error => console.error('Error fetching personal data:', error));
 
     // Fetch social data
-    fetch('http://localhost:5001/api/social')
+    fetch(`${apiBase}/api/social`)
       .then(response => response.json())
       .then(data => setSocial(data))
       .catch(error => console.error('Error fetching social data:', error));

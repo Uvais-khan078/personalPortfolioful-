@@ -8,7 +8,7 @@ const Projects = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001';
+    const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://personal-portfolioful.vercel.app';
     fetch(`${apiBase}/api/projects`)
       .then(response => response.json())
       .then(data => {

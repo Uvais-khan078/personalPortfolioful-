@@ -5,7 +5,9 @@ const About = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5001/api/personal')
+    const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://personal-portfolioful.vercel.app';
+
+    fetch(`${apiBase}/api/personal`)
       .then(response => response.json())
       .then(data => {
         setPersonal(data);

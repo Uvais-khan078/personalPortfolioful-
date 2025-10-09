@@ -18,8 +18,10 @@ const Blog = () => {
       });
     }
 
+    const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://personal-portfolioful.vercel.app';
+
     // Fetch blogs
-    fetch('http://localhost:5001/api/blogs')
+    fetch(`${apiBase}/api/blogs`)
       .then(response => response.json())
       .then(data => {
         setBlogs(data);
