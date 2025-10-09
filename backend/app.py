@@ -1,9 +1,10 @@
 from flask import Flask, jsonify
 import json
+import os
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app, origins=[os.getenv('CLIENT_URL', '*')])  # Enable CORS for specified origin or all
 
 # Load data from data.json
 with open('data.json', 'r') as f:
