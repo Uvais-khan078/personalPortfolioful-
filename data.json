@@ -1,0 +1,67 @@
+{
+  "personal": {
+    "name": "Your Name",
+    "title": "Your Title",
+    "description": "Your description",
+    "aboutDescription": "About you",
+    "image": "your-image.jpg",
+    "location": "Your Location",
+    "email": "your@email.com",
+    "phone": "123-456-7890",
+    "hobbies": [
+      {"name": "Hobby1", "icon": "icon1"},
+      {"name": "Hobby2", "icon": "icon2"}
+    ]
+  },
+  "education": [
+    {
+      "id": 1,
+      "title": "Degree",
+      "institution": "University",
+      "duration": "2020-2024",
+      "description": "Description",
+      "type": "education"
+    }
+  ],
+  "skills": {
+    "technical": [
+      {"name": "Skill1", "percentage": "80"},
+      {"name": "Skill2", "percentage": "90"}
+    ],
+    "professional": [
+      {"name": "Skill3", "percentage": "85"}
+    ]
+  },
+  "social": {
+    "github": "https://github.com",
+    "twitter": "https://twitter.com",
+    "linkedin": "https://linkedin.com",
+    "instagram": "https://instagram.com"
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "Project1",
+      "description": "Description",
+      "image": "image.jpg",
+      "technologies": ["Tech1", "Tech2"],
+      "link": "https://project.com"
+    }
+  ],
+  "blogs": [
+    {
+      "id": 1,
+      "title": "Blog1",
+      "description": "Description",
+      "image": "image.jpg",
+      "link": "https://blog.com"
+    }
+  ],
+  "blogPosts": {
+    "1": {
+      "title": "Blog Post 1",
+      "content": "Content",
+      "date": "2023-01-01"
+    }
+  }
+}
