@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Load data from data.json
-with open('../data.json', 'r') as f:
+with open('data.json', 'r') as f:
     data = json.load(f)
 
 @app.route('/api/personal')
