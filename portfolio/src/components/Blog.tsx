@@ -1,23 +1,21 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import feather from 'feather-icons';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'wouter';
+
+interface BlogPost {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  date: string;
+  readTime: string;
+  excerpt: string;
+}
 
 const Blog = () => {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [blogs, setBlogs] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    // Initialize feather icons
-    feather.replace();
-
-    // Mobile menu toggle
-    const mobileMenuButton = document.querySelector('.mobile-menu-button');
-    if (mobileMenuButton) {
-      mobileMenuButton.addEventListener('click', function() {
-        alert('Mobile menu would open here in a complete implementation');
-      });
-    }
-
     const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://personal-portfolioful.vercel.app';
 
     // Fetch blogs

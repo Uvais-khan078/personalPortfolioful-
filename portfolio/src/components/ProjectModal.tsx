@@ -1,6 +1,21 @@
 import React from 'react';
 
-const ProjectModal = ({ isOpen, onClose, project }) => {
+interface Project {
+  title: string;
+  image: string;
+  description: string;
+  technologies: string[];
+  demoLink?: string;
+  githubLink?: string;
+}
+
+interface ProjectModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  project: Project | null;
+}
+
+const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, project }) => {
   if (!isOpen || !project) return null;
 
   return (

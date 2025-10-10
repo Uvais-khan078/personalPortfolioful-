@@ -1,9 +1,32 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+interface Skill {
+  name: string;
+  percentage: number;
+}
+
+interface SkillsData {
+  technical: Skill[];
+  professional: Skill[];
+}
+
+interface Personal {
+  name: string;
+  title: string;
+  description: string;
+  aboutDescription: string;
+  profileImage: string;
+  location: string;
+  email: string;
+  phone: string;
+  hobbies: string[];
+  skillsDescription: string;
+}
 
 const Skills = () => {
-  const [skills, setSkills] = useState({});
-  const [personal, setPersonal] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [skills, setSkills] = useState<Partial<SkillsData>>({});
+  const [personal, setPersonal] = useState<Partial<Personal>>({});
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const apiBase = 'https://personal-portfolioful.vercel.app';

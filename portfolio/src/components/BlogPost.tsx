@@ -1,16 +1,20 @@
-import { useParams, Link } from 'react-router-dom';
-import { useEffect } from 'react';
-import feather from 'feather-icons';
+import React, { useEffect } from 'react';
+import { useParams, Link } from 'wouter';
+import { ArrowLeft } from 'lucide-react';
+
+interface Post {
+  title: string;
+  date: string;
+  readTime: string;
+  images: string[];
+  content: string;
+}
 
 const BlogPost = () => {
-  const { id } = useParams();
-
-  useEffect(() => {
-    feather.replace();
-  }, []);
+  const { id } = useParams<{ id: string }>();
 
   // Hardcoded blog data (in a real app, this would come from an API or CMS)
-  const blogPosts = {
+  const blogPosts: Record<string, Post> = {
     1: {
       title: "Getting Started with React Hooks",
       date: "June 15, 2023",
@@ -292,7 +296,7 @@ function UserProfile({ userId }) {
       <section className="pt-32 pb-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/blog" className="inline-flex items-center text-indigo-600 hover:text-indigo-800 mb-8 transition">
-            <i data-feather="arrow-left" className="w-4 h-4 mr-2"></i>
+            <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Blog
           </Link>
           <h1 className="text-4xl font-bold text-gray-800 mb-4">{post.title}</h1>

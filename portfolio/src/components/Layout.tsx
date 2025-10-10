@@ -1,21 +1,31 @@
-import { useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
-import AOS from 'aos';
-import feather from 'feather-icons';
-import 'aos/dist/aos.css';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'wouter';
+import { Github, Twitter, Linkedin, Instagram, Menu } from 'lucide-react';
+
+interface Personal {
+  name: string;
+  title: string;
+  description: string;
+  aboutDescription: string;
+  profileImage: string;
+  location: string;
+  email: string;
+  phone: string;
+  hobbies: string[];
+}
+
+interface Social {
+  github: string;
+  twitter: string;
+  linkedin: string;
+  instagram: string;
+}
 
 const Layout = () => {
-  const [personal, setPersonal] = useState({});
-  const [social, setSocial] = useState({});
+  const [personal, setPersonal] = useState<Partial<Personal>>({});
+  const [social, setSocial] = useState<Partial<Social>>({});
 
   useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      once: true
-    });
-    feather.replace();
-
     const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://personal-portfolioful.vercel.app';
 
     // Fetch personal data
@@ -46,11 +56,11 @@ const Layout = () => {
               <a href="/#projects" className="text-gray-700 hover:text-indigo-600 transition">Projects</a>
               <a href="/#skills" className="text-gray-700 hover:text-indigo-600 transition">Skills</a>
               <a href="/#contact" className="text-gray-700 hover:text-indigo-600 transition">Contact</a>
-              <a href="/blog" className="text-gray-700 hover:text-indigo-600 transition">Blog</a>
+              <Link to="/blog" className="text-gray-700 hover:text-indigo-600 transition">Blog</Link>
             </div>
             <div className="md:hidden flex items-center">
               <button className="mobile-menu-button">
-                <i data-feather="menu"></i>
+                <Menu className="w-6 h-6" />
               </button>
             </div>
           </div>
@@ -58,7 +68,7 @@ const Layout = () => {
       </nav>
 
       {/* Main Content */}
-      <Outlet />
+      <div>Main Content</div>
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12">

@@ -1,8 +1,30 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { User, MapPin, Mail, Phone, Music, Camera, Book, Globe } from 'lucide-react';
+
+interface Personal {
+  name: string;
+  title: string;
+  description: string;
+  aboutDescription: string;
+  profileImage: string;
+  location: string;
+  email: string;
+  phone: string;
+  hobbies: string[];
+}
 
 const About = () => {
-  const [personal, setPersonal] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [personal, setPersonal] = useState<Partial<Personal>>({});
+  const [loading, setLoading] = useState<boolean>(true);
+
+  const getHobbyIcon = (index: number) => {
+    switch (index) {
+      case 0: return <Music className="w-4 h-4 mr-2" />;
+      case 1: return <Camera className="w-4 h-4 mr-2" />;
+      case 2: return <Book className="w-4 h-4 mr-2" />;
+      default: return <Globe className="w-4 h-4 mr-2" />;
+    }
+  };
 
   useEffect(() => {
     const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://personal-portfolioful.vercel.app';
@@ -38,10 +60,10 @@ const About = () => {
               <div>
                 <h4 className="font-medium text-gray-800 mb-2">Personal Info</h4>
                 <ul className="text-gray-600 space-y-2">
-                  <li className="flex items-center"><i data-feather="user" className="w-4 h-4 mr-2"></i> <span>{personal.name}</span></li>
-                  <li className="flex items-center"><i data-feather="map-pin" className="w-4 h-4 mr-2"></i> <span>{personal.location}</span></li>
-                  <li className="flex items-center"><i data-feather="mail" className="w-4 h-4 mr-2"></i> <span>{personal.email}</span></li>
-                  <li className="flex items-center"><i data-feather="phone" className="w-4 h-4 mr-2"></i> <span>{personal.phone}</span></li>
+                  <li className="flex items-center"><User className="w-4 h-4 mr-2" /> <span>{personal.name}</span></li>
+                  <li className="flex items-center"><MapPin className="w-4 h-4 mr-2" /> <span>{personal.location}</span></li>
+                  <li className="flex items-center"><Mail className="w-4 h-4 mr-2" /> <span>{personal.email}</span></li>
+                  <li className="flex items-center"><Phone className="w-4 h-4 mr-2" /> <span>{personal.phone}</span></li>
                 </ul>
               </div>
               <div>
@@ -49,7 +71,7 @@ const About = () => {
                 <ul className="text-gray-600 space-y-2">
                   {personal.hobbies && personal.hobbies.map((hobby, index) => (
                     <li key={index} className="flex items-center">
-                      <i data-feather={index === 0 ? 'music' : index === 1 ? 'camera' : index === 2 ? 'book' : 'globe'} className="w-4 h-4 mr-2"></i>
+                      {getHobbyIcon(index)}
                       <span>{hobby}</span>
                     </li>
                   ))}

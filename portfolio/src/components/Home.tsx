@@ -1,18 +1,82 @@
-import { useEffect, useState } from 'react';
-import feather from 'feather-icons';
+import React, { useEffect, useState } from 'react';
+import { ChevronDown, User, MapPin, Mail, Phone, Book, Briefcase, Github, Twitter, Linkedin, Instagram } from 'lucide-react';
 import ProjectModal from './ProjectModal';
 
+interface Personal {
+  name: string;
+  title: string;
+  description: string;
+  aboutDescription: string;
+  image: string;
+  location: string;
+  email: string;
+  phone: string;
+  hobbies: Hobby[];
+}
+
+interface Hobby {
+  name: string;
+  icon: string;
+}
+
+interface Education {
+  id: number;
+  title: string;
+  institution: string;
+  duration: string;
+  description: string;
+  type: string;
+}
+
+interface Social {
+  github: string;
+  twitter: string;
+  linkedin: string;
+  instagram: string;
+}
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  link: string;
+}
+
+interface Blog {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+}
+
+interface Skills {
+  technical: Skill[];
+  professional: Skill[];
+}
+
+interface Skill {
+  name: string;
+  percentage: number;
+}
+
+interface RawSkill {
+  name: string;
+  percentage: string;
+}
+
 const Home = () => {
-  const [personal, setPersonal] = useState({});
-  const [education, setEducation] = useState([]);
-  const [social, setSocial] = useState({});
-  const [projects, setProjects] = useState([]);
-  const [blogs, setBlogs] = useState([]);
-  const [skills, setSkills] = useState({});
+  const [personal, setPersonal] = useState<Personal>({} as Personal);
+  const [education, setEducation] = useState<Education[]>([]);
+  const [social, setSocial] = useState<Social>({} as Social);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [skills, setSkills] = useState<Skills>({} as Skills);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    feather.replace();
 
     const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://personal-portfolioful.vercel.app';
 
@@ -32,7 +96,10 @@ const Home = () => {
       setSocial(socialData);
       setProjects(projectsData);
       setBlogs(blogsData);
-      setSkills(skillsData);
+      setSkills({
+        technical: skillsData.technical.map((skill: RawSkill) => ({ ...skill, percentage: Number(skill.percentage) })),
+        professional: skillsData.professional.map((skill: RawSkill) => ({ ...skill, percentage: Number(skill.percentage) }))
+      });
       setLoading(false);
     })
     .catch(error => {
@@ -61,7 +128,7 @@ const Home = () => {
           </div>
           <div className="absolute bottom-10 left-0 right-0 text-center">
             <a href="#about" className="animate-bounce inline-block">
-              <i data-feather="chevron-down" className="w-10 h-10 text-white"></i>
+              <ChevronDown className="w-10 h-10 text-white" />
             </a>
           </div>
         </div>
@@ -86,10 +153,10 @@ const Home = () => {
                 <div>
                   <h4 className="font-medium text-gray-800 mb-2">Personal Info</h4>
                   <ul className="text-gray-600 space-y-2">
-                    <li className="flex items-center"><i data-feather="user" className="w-4 h-4 mr-2"></i> <span>{personal.name}</span></li>
-                    <li className="flex items-center"><i data-feather="map-pin" className="w-4 h-4 mr-2"></i> <span>{personal.location}</span></li>
-                    <li className="flex items-center"><i data-feather="mail" className="w-4 h-4 mr-2"></i> <span>{personal.email}</span></li>
-                    <li className="flex items-center"><i data-feather="phone" className="w-4 h-4 mr-2"></i> <span>{personal.phone}</span></li>
+                    <li className="flex items-center"><User className="w-4 h-4 mr-2" /> <span>{personal.name}</span></li>
+                    <li className="flex items-center"><MapPin className="w-4 h-4 mr-2" /> <span>{personal.location}</span></li>
+                    <li className="flex items-center"><Mail className="w-4 h-4 mr-2" /> <span>{personal.email}</span></li>
+                    <li className="flex items-center"><Phone className="w-4 h-4 mr-2" /> <span>{personal.phone}</span></li>
                   </ul>
                 </div>
                 <div>
@@ -97,7 +164,7 @@ const Home = () => {
                   <ul className="text-gray-600 space-y-2">
                     {personal.hobbies && personal.hobbies.map((hobby, index) => (
                       <li key={index} className="flex items-center">
-                        <i data-feather={hobby.icon} className="w-4 h-4 mr-2"></i> <span>{hobby.name}</span>
+                        <span className="w-4 h-4 mr-2">•</span> <span>{hobby.name}</span>
                       </li>
                     ))}
                   </ul>
@@ -126,7 +193,7 @@ const Home = () => {
             <div className="space-y-12">
               {education.map((item, index) => (
                 <div
-                  key={item.id}
+                  key={index}
                   className={`relative ${index % 2 === 0 ? 'md:ml-auto' : ''}`}
                   data-aos="fade-up"
                   data-aos-delay={index * 100}
@@ -134,7 +201,7 @@ const Home = () => {
                   <div className={`bg-white p-6 rounded-lg shadow-md relative z-10 md:w-1/2 ${index % 2 === 0 ? 'ml-auto' : ''}`}>
                     <div className="flex items-center mb-2">
                       <div className="bg-indigo-100 p-2 rounded-full mr-4">
-                        <i data-feather={item.type === 'education' ? 'book' : 'briefcase'} className="w-5 h-5 text-indigo-600"></i>
+                        {item.type === 'education' ? <Book className="w-5 h-5 text-indigo-600" /> : <Briefcase className="w-5 h-5 text-indigo-600" />}
                       </div>
                       <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
                     </div>
@@ -168,7 +235,7 @@ const Home = () => {
                       <span className="text-gray-600">{skill.percentage}%</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-indigo-600 h-2 rounded-full skill-bar" style={{width: `${skill.percentage}%`}}></div>
+                      <div className="bg-indigo-600 h-2 rounded-full skill-bar" style={{width: `${Number(skill.percentage)}%`}}></div>
                     </div>
                   </div>
                 ))}
@@ -184,7 +251,7 @@ const Home = () => {
                       <span className="text-gray-600">{skill.percentage}%</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-indigo-600 h-2 rounded-full skill-bar" style={{width: `${skill.percentage}%`}}></div>
+                      <div className="bg-indigo-600 h-2 rounded-full skill-bar" style={{width: `${Number(skill.percentage)}%`}}></div>
                     </div>
                   </div>
                 ))}
@@ -204,7 +271,7 @@ const Home = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.slice(0, 3).map((project, index) => (
-              <div key={project.id} className="bg-white rounded-lg overflow-hidden shadow-md project-card transition duration-300" data-aos="fade-up" data-aos-delay={index * 100}>
+              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md project-card transition duration-300" data-aos="fade-up" data-aos-delay={index * 100}>
                 <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h3>
@@ -250,7 +317,7 @@ const Home = () => {
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-gray-700 mb-2">Message</label>
-                  <textarea id="message" rows="5" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent"></textarea>
+                  <textarea id="message" rows={5} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent"></textarea>
                 </div>
                 <button type="submit" className="px-6 py-3 bg-indigo-600 text-white rounded-full font-medium hover:bg-indigo-700 transition w-full">Send Message</button>
               </form>
@@ -261,7 +328,7 @@ const Home = () => {
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="bg-indigo-100 p-3 rounded-full mr-4">
-                      <i data-feather="mail" className="w-5 h-5 text-indigo-600"></i>
+                      <Mail className="w-5 h-5 text-indigo-600" />
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-800 mb-1">Email</h4>
@@ -270,7 +337,7 @@ const Home = () => {
                   </div>
                   <div className="flex items-start">
                     <div className="bg-indigo-100 p-3 rounded-full mr-4">
-                      <i data-feather="phone" className="w-5 h-5 text-indigo-600"></i>
+                      <Phone className="w-5 h-5 text-indigo-600" />
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-800 mb-1">Phone</h4>
@@ -279,7 +346,7 @@ const Home = () => {
                   </div>
                   <div className="flex items-start">
                     <div className="bg-indigo-100 p-3 rounded-full mr-4">
-                      <i data-feather="map-pin" className="w-5 h-5 text-indigo-600"></i>
+                      <MapPin className="w-5 h-5 text-indigo-600" />
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-800 mb-1">Location</h4>
@@ -291,16 +358,16 @@ const Home = () => {
                   <h4 className="font-medium text-gray-800 mb-4">Follow Me</h4>
                   <div className="flex space-x-4">
                     <a href={social.github} className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
-                      <i data-feather="github" className="w-5 h-5 text-gray-700"></i>
+                      <Github className="w-5 h-5 text-gray-700" />
                     </a>
                     <a href={social.twitter} className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
-                      <i data-feather="twitter" className="w-5 h-5 text-gray-700"></i>
+                      <Twitter className="w-5 h-5 text-gray-700" />
                     </a>
                     <a href={social.linkedin} className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
-                      <i data-feather="linkedin" className="w-5 h-5 text-gray-700"></i>
+                      <Linkedin className="w-5 h-5 text-gray-700" />
                     </a>
                     <a href={social.instagram} className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
-                      <i data-feather="instagram" className="w-5 h-5 text-gray-700"></i>
+                      <Instagram className="w-5 h-5 text-gray-700" />
                     </a>
                   </div>
                 </div>

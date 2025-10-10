@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 const corsOptions = {
-  origin: ['https://uvaiskhan078.vercel.app', 'https://personal-portfolioful.vercel.app'],
+  origin: ['https://uvaiskhan078.vercel.app', 'https://personal-portfolioful.vercel.app', 'https://personal-portfolioful.vercel.app/', 'http://localhost:5173'],
   credentials: true,
   optionsSuccessStatus: 200
 };
