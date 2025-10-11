@@ -78,6 +78,7 @@ function App() {
         {/* Main Content */}
         <Switch>
           <Route path="/" component={Home} />
+          <Route path="/projects" component={Projects} />
           <Route path="/blog" component={Blog} />
           <Route path="/blog/:id" component={BlogPost} />
         </Switch>
