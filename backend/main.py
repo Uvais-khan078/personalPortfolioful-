@@ -49,6 +49,14 @@ def get_projects():
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
     return response
 
+@app.route('/api/basicProjects')
+def get_basic_projects():
+    response = jsonify(data['basicProjects'])
+    response.headers['Access-Control-Allow-Origin'] = 'https://uvaiskhan078.vercel.app'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    return response
+
 @app.route('/api/blogs')
 def get_blogs():
     response = jsonify(data['blogs'])

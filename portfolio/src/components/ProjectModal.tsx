@@ -5,6 +5,7 @@ interface Project {
   image: string;
   description: string;
   technologies: string[];
+  link?: string;
   demoLink?: string;
   githubLink?: string;
 }
@@ -41,10 +42,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, project })
             ))}
           </div>
           <div className="flex gap-4">
-            <a href={project.demoLink || '#'} className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+            <a href={project.link || '#'} className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
               View Demo
             </a>
-            <a href={project.githubLink || '#'} className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition">
+            <a href="#" className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition">
               GitHub
             </a>
           </div>

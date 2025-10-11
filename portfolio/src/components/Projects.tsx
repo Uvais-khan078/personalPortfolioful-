@@ -10,10 +10,17 @@ interface Project {
   link: string;
 }
 
+interface BasicProject {
+  title: string;
+  description: string;
+  technologies: string[];
+}
+
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [projects, setProjects] = useState<Project[]>([]);
+  const [basicProjects, setBasicProjects] = useState<BasicProject[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -22,10 +29,19 @@ const Projects = () => {
       .then(response => response.json())
       .then(data => {
         setProjects(data);
-        setLoading(false);
       })
       .catch(error => {
         console.error('Error fetching projects:', error);
+      });
+
+    fetch(`${apiBase}/api/basicProjects`)
+      .then(response => response.json())
+      .then(data => {
+        setBasicProjects(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching basic projects:', error);
         setLoading(false);
       });
   }, []);
@@ -76,6 +92,32 @@ const Projects = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-20">
+          <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center" data-aos="fade-up">Basic Projects</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {basicProjects.map((project, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg overflow-hidden shadow-md project-card transition duration-300"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h3>
+                  <p className="text-gray-600 mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span key={techIndex} className="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
