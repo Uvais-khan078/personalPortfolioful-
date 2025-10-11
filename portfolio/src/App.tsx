@@ -59,7 +59,7 @@ function App() {
                 <span className="text-xl font-bold text-indigo-600">{personal.name ? personal.name.replace(' ', '_') : 'Uvais_khan'}</span>
               </div>
               <div className="hidden md:flex items-center space-x-8">
-                <a href="#home" className="text-gray-700 hover:text-indigo-600 transition">Home</a>
+                <a href="/" className="text-gray-700 hover:text-indigo-600 transition">Home</a>
                 <a href="#about" className="text-gray-700 hover:text-indigo-600 transition">About</a>
                 <a href="#projects" className="text-gray-700 hover:text-indigo-600 transition">Projects</a>
                 <a href="#skills" className="text-gray-700 hover:text-indigo-600 transition">Skills</a>
