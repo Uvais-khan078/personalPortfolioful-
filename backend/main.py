@@ -4,7 +4,7 @@ import json
 
 app = Flask(__name__)
 
-CORS(app)
+CORS(app, origins=["https://uvaiskhan078.vercel.app"])
 
 # Load data from data.json
 with open('data.json', 'r') as f:
