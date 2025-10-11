@@ -20,9 +20,9 @@ const BlogPost = () => {
       date: "June 15, 2023",
       readTime: "5 min read",
       images: [
-        "http://static.photos/technology/640x360/7",
-        "http://static.photos/technology/640x360/10",
-        "http://static.photos/technology/640x360/11"
+        "https://static.photos/technology/640x360/7",
+        "https://static.photos/technology/640x360/10",
+        "https://static.photos/technology/640x360/11"
       ],
       content: `
         <p>React Hooks have revolutionized the way we write React components. Introduced in React 16.8, hooks allow you to use state and other React features without writing a class component. This makes your code more readable, reusable, and easier to test.</p>
@@ -93,10 +93,10 @@ function UserProfile({ userId }) {
       date: "May 28, 2023",
       readTime: "8 min read",
       images: [
-        "http://static.photos/technology/640x360/8",
-        "http://static.photos/technology/640x360/12",
-        "http://static.photos/technology/640x360/13",
-        "http://static.photos/technology/640x360/14"
+        "https://static.photos/technology/640x360/8",
+        "https://static.photos/technology/640x360/12",
+        "https://static.photos/technology/640x360/13",
+        "https://static.photos/technology/640x360/14"
       ],
       content: `
         <p>CSS Grid and Flexbox are two powerful layout systems that have transformed how we approach web design. While both are incredibly useful, they serve different purposes and are often complementary rather than competing technologies.</p>
@@ -182,8 +182,8 @@ function UserProfile({ userId }) {
       date: "April 12, 2023",
       readTime: "6 min read",
       images: [
-        "http://static.photos/technology/640x360/9",
-        "http://static.photos/technology/640x360/15"
+        "https://static.photos/technology/640x360/9",
+        "https://static.photos/technology/640x360/15"
       ],
       content: `
         <p>Web performance is crucial for user experience and SEO. Slow websites lose visitors and rank lower in search results. Fortunately, there are many techniques to optimize your site's performance.</p>

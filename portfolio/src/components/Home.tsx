@@ -78,7 +78,7 @@ const Home = () => {
 
   useEffect(() => {
 
-    const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://personal-portfolioful.vercel.app';
+    const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://uvaiskhan078.vercel.app';
 
     // Fetch data
     Promise.all([
