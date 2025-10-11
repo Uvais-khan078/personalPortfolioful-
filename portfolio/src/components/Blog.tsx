@@ -6,9 +6,8 @@ interface BlogPost {
   title: string;
   description: string;
   image: string;
-  date: string;
-  readTime: string;
-  excerpt: string;
+  date?: string;
+  readTime?: string;
 }
 
 const Blog = () => {
@@ -65,7 +64,7 @@ const Blog = () => {
                     <span>{blog.readTime}</span>
                   </div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">{blog.title}</h3>
-                  <p className="text-gray-600 mb-4">{blog.excerpt}</p>
+                  <p className="text-gray-600 mb-4">{blog.description}</p>
                   <Link to={`/blog/${blog.id}`} className="text-indigo-600 font-medium hover:text-indigo-800 transition">Read More →</Link>
                 </div>
               </div>
