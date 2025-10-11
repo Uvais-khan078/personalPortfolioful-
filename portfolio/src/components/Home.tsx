@@ -44,6 +44,12 @@ interface Project {
   link: string;
 }
 
+interface BasicProject {
+  title: string;
+  description: string;
+  technologies: string[];
+}
+
 interface Blog {
   id: number;
   title: string;
@@ -72,9 +78,22 @@ const Home = () => {
   const [education, setEducation] = useState<Education[]>([]);
   const [social, setSocial] = useState<Social>({} as Social);
   const [projects, setProjects] = useState<Project[]>([]);
+  const [basicProjects, setBasicProjects] = useState<BasicProject[]>([]);
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [skills, setSkills] = useState<Skills>({} as Skills);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState(true);
+
+  const openModal = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
 
   useEffect(() => {
 
@@ -86,15 +105,17 @@ const Home = () => {
       fetch(`${apiBase}/api/education`),
       fetch(`${apiBase}/api/social`),
       fetch(`${apiBase}/api/projects`),
+      fetch(`${apiBase}/api/basicProjects`),
       fetch(`${apiBase}/api/blogs`),
       fetch(`${apiBase}/api/skills`)
     ])
     .then(responses => Promise.all(responses.map(r => r.json())))
-    .then(([personalData, educationData, socialData, projectsData, blogsData, skillsData]) => {
+    .then(([personalData, educationData, socialData, projectsData, basicProjectsData, blogsData, skillsData]) => {
       setPersonal(personalData);
       setEducation(educationData);
       setSocial(socialData);
       setProjects(projectsData);
+      setBasicProjects(basicProjectsData);
       setBlogs(blogsData);
       setSkills({
         technical: skillsData.technical.map((skill: RawSkill) => ({ ...skill, percentage: Number(skill.percentage) })),
@@ -270,7 +291,7 @@ const Home = () => {
             <p className="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">Here are some of my recent projects that showcase my skills and expertise.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.slice(0, 3).map((project, index) => (
+            {projects.map((project, index) => (
               <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md project-card transition duration-300" data-aos="fade-up" data-aos-delay={index * 100}>
                 <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
                 <div className="p-6">
@@ -281,13 +302,23 @@ const Home = () => {
                       <span key={techIndex} className="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">{tech}</span>
                     ))}
                   </div>
-                  <a href={project.link} className="text-indigo-600 font-medium hover:text-indigo-800 transition">View Project →</a>
+                  <button onClick={() => openModal(project)} className="text-indigo-600 font-medium hover:text-indigo-800 transition">View Project →</button>
                 </div>
               </div>
             ))}
-          </div>
-          <div className="text-center mt-12" data-aos="fade-up">
-            <a href="/projects" className="px-6 py-3 border border-indigo-600 text-indigo-600 rounded-full font-medium hover:bg-indigo-600 hover:text-white transition">View All Projects</a>
+            {basicProjects.map((project, index) => (
+              <div key={`basic-${index}`} className="bg-white rounded-lg overflow-hidden shadow-md project-card transition duration-300" data-aos="fade-up" data-aos-delay={(projects.length + index) * 100}>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h3>
+                  <p className="text-gray-600 mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span key={techIndex} className="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -376,6 +407,14 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          isOpen={isModalOpen}
+          onClose={closeModal}
+        />
+      )}
 
           </>
   );

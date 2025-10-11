@@ -59,11 +59,11 @@ function App() {
                 <span className="text-xl font-bold text-indigo-600">{personal.name ? personal.name.replace(' ', '_') : 'Uvais_khan'}</span>
               </div>
               <div className="hidden md:flex items-center space-x-8">
-                <Link href="/" className="text-gray-700 hover:text-indigo-600 transition">Home</Link>
-                <Link href="/about" className="text-gray-700 hover:text-indigo-600 transition">About</Link>
-                <Link href="/projects" className="text-gray-700 hover:text-indigo-600 transition">Projects</Link>
-                <Link href="/skills" className="text-gray-700 hover:text-indigo-600 transition">Skills</Link>
-                <Link href="/contact" className="text-gray-700 hover:text-indigo-600 transition">Contact</Link>
+                <a href="#home" className="text-gray-700 hover:text-indigo-600 transition">Home</a>
+                <a href="#about" className="text-gray-700 hover:text-indigo-600 transition">About</a>
+                <a href="#projects" className="text-gray-700 hover:text-indigo-600 transition">Projects</a>
+                <a href="#skills" className="text-gray-700 hover:text-indigo-600 transition">Skills</a>
+                <a href="#contact" className="text-gray-700 hover:text-indigo-600 transition">Contact</a>
                 <Link href="/blog" className="text-gray-700 hover:text-indigo-600 transition">Blog</Link>
               </div>
               <div className="md:hidden flex items-center">
@@ -78,10 +78,6 @@ function App() {
         {/* Main Content */}
         <Switch>
           <Route path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/projects" component={Projects} />
-          <Route path="/skills" component={Skills} />
-          <Route path="/contact" component={Contact} />
           <Route path="/blog" component={Blog} />
           <Route path="/blog/:id" component={BlogPost} />
         </Switch>
