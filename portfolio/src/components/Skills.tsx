@@ -29,7 +29,7 @@ const Skills = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const apiBase = 'https://uvaiskhan078.vercel.app';
+    const apiBase = 'https://personal-portfolioful.vercel.app';
 
     // Fetch skills data
     fetch(`${apiBase}/api/skills`)
