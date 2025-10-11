@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 
@@ -7,13 +6,17 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-const corsOptions = {
-  origin: ['https://uvaiskhan078.vercel.app', 'https://personal-portfolioful.vercel.app', 'https://personal-portfolioful.vercel.app/', 'http://localhost:5173'],
-  credentials: true,
-  optionsSuccessStatus: 200
-};
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://uvaiskhan078.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
+});
 
-app.use(cors(corsOptions));
 app.use(express.json());
 
 // Load data
