@@ -1,10 +1,14 @@
-from flask import Flask, jsonify
-from flask_cors import CORS
+from flask import Flask, jsonify, request
 import json
 
 app = Flask(__name__)
 
-CORS(app, origins=["https://uvaiskhan078.vercel.app"])
+@app.after_request
+def add_cors_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = 'https://uvaiskhan078.vercel.app'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    return response
 
 # Load data from data.json
 with open('data.json', 'r') as f:
