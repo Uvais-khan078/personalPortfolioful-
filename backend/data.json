@@ -1,13 +1,13 @@
 {
   "personal": {
-    "name": "Your Name",
+    "name": "Uvais khan",
     "title": "Your Title",
     "description": "Your description",
     "aboutDescription": "About you",
     "image": "your-image.jpg",
-    "location": "Your Location",
-    "email": "your@email.com",
-    "phone": "123-456-7890",
+    "location": "dehradun, uttarakhand",
+    "email": "uvaiswalikhan@gmail.com",
+    "phone": "9084901641",
     "hobbies": [
       {"name": "Hobby1", "icon": "icon1"},
       {"name": "Hobby2", "icon": "icon2"}
