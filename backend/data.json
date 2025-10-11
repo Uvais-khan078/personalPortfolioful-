@@ -1,50 +1,121 @@
 {
   "personal": {
-    "name": "Uvais khan",
-    "title": "Your Title",
-    "description": "Your description",
-    "aboutDescription": "About you",
+    "name": "Mohd Uvais Wali Khan",
+    "title": "B.Tech Cybersecurity Student | Intern at NHPC Limited | Frontend & Backend Developer",
+    "description": "As a B.Tech Cybersecurity student at the Faculty of Technology, Veer Madho Singh Bhandari Uttarakhand Technical University, I’m passionate about cybersecurity, ethical hacking, and full-stack web development. I enjoy learning about secure coding, Linux systems, and OSINT. My goal is to build secure, efficient, and impactful digital solutions.",
+    "aboutDescription": "As a B.Tech Cybersecurity student at the Faculty of Technology, Veer Madho Singh Bhandari Uttarakhand Technical University, I’m passionate about cybersecurity, ethical hacking, and full-stack web development. I enjoy learning about secure coding, Linux systems, and OSINT. My goal is to build secure, efficient, and impactful digital solutions.",
     "image": "your-image.jpg",
-    "location": "dehradun, uttarakhand",
+    "location": "Dehradun, Uttarakhand, India",
     "email": "uvaiswalikhan@gmail.com",
     "phone": "9084901641",
     "hobbies": [
-      {"name": "Hobby1", "icon": "icon1"},
-      {"name": "Hobby2", "icon": "icon2"}
+      {"name": "Exploring Linux & Ethical Hacking", "icon": "icon1"},
+      {"name": "Building Web Apps", "icon": "icon2"},
+      {"name": "Participating in Hackathons", "icon": "icon3"},
+      {"name": "Public Speaking", "icon": "icon4"},
+      {"name": "Tech Documentaries", "icon": "icon5"}
     ]
   },
   "education": [
     {
       "id": 1,
-      "title": "Degree",
-      "institution": "University",
-      "duration": "2020-2024",
-      "description": "Description",
+      "title": "Bachelor of Technology (B.Tech) in Cybersecurity",
+      "institution": "Faculty of Technology, Veer Madho Singh Bhandari Uttarakhand Technical University (UTU)",
+      "duration": "2024 - 2027",
+      "description": "Specializing in cybersecurity, network defense, cryptography, and ethical hacking. Participated in hackathons, technical workshops, and industry events focused on AI, Blockchain, and Security.",
+      "type": "education"
+    },
+    {
+      "id": 2,
+      "title": "Diploma in Engineering",
+      "institution": "Government Polytechnic Kashipur",
+      "duration": "2020 - 2023",
+      "description": "Completed diploma with core courses in computer science fundamentals, software engineering, and networking.",
+      "type": "education"
+    },
+    {
+      "id": 3,
+      "title": "Full Stack Developer Certification",
+      "institution": "CodeYogi",
+      "duration": "Dec 2021 - Jul 2022",
+      "description": "Learned frontend and backend web development using HTML, CSS, JavaScript, React, TypeScript, and Node.js.",
+      "type": "education"
+    },
+    {
+      "id": 4,
+      "title": "Post Graduate Diploma in Financial Accounting (PGDFA)",
+      "institution": "PGDFA Institute",
+      "duration": "",
+      "description": "Studied Financial Accounting, GST, and Tally ERP software.",
       "type": "education"
     }
   ],
   "skills": {
     "technical": [
-      {"name": "Skill1", "percentage": "80"},
-      {"name": "Skill2", "percentage": "90"}
+      {"name": "HTML", "percentage": "90"},
+      {"name": "CSS", "percentage": "85"},
+      {"name": "JavaScript", "percentage": "80"},
+      {"name": "TypeScript", "percentage": "75"},
+      {"name": "React (Vite)", "percentage": "80"},
+      {"name": "Tailwind CSS", "percentage": "85"},
+      {"name": "Flask", "percentage": "70"},
+      {"name": "PostgreSQL", "percentage": "75"},
+      {"name": "Oracle Database", "percentage": "70"},
+      {"name": "ASP.NET Core", "percentage": "65"},
+      {"name": "C#", "percentage": "65"},
+      {"name": "MVC Framework", "percentage": "65"},
+      {"name": "Linux (Mint, Parrot, Kali)", "percentage": "80"},
+      {"name": "Web Security", "percentage": "75"},
+      {"name": "Computer Networks", "percentage": "70"},
+      {"name": "Python", "percentage": "75"}
     ],
     "professional": [
-      {"name": "Skill3", "percentage": "85"}
+      {"name": "Project Management", "percentage": "80"},
+      {"name": "Problem Solving", "percentage": "90"},
+      {"name": "Team Collaboration", "percentage": "85"},
+      {"name": "Leadership", "percentage": "75"},
+      {"name": "Communication", "percentage": "85"},
+      {"name": "Public Speaking", "percentage": "80"},
+      {"name": "Attention to Detail", "percentage": "90"}
     ]
   },
   "social": {
-    "github": "https://github.com",
+    "github": "https://github.com/uvaiswali",
     "twitter": "https://twitter.com",
-    "linkedin": "https://linkedin.com",
+    "linkedin": "https://www.linkedin.com/in/mohd-uvais-wali-khan-56696a236/",
     "instagram": "https://instagram.com"
   },
   "projects": [
     {
       "id": 1,
-      "title": "Project1",
-      "description": "Description",
+      "title": "RiverGuard",
+      "description": "A comprehensive dashboard system for monitoring and safeguarding river health. Includes user authentication, admin management, and real-time data visualization using Flask and PostgreSQL.",
       "image": "image.jpg",
-      "technologies": ["Tech1", "Tech2"],
+      "technologies": ["Flask", "PostgreSQL", "React", "Tailwind CSS", "Chart.js"],
+      "link": "https://project.com"
+    },
+    {
+      "id": 2,
+      "title": "SecurityRiskScanner",
+      "description": "A web-based security scanner that detects vulnerabilities such as SQL injection and XSS. Generates detailed reports and stores results in PostgreSQL. Built with strong emphasis on code security and accessibility.",
+      "image": "image.jpg",
+      "technologies": ["React", "Flask", "PostgreSQL", "TypeScript"],
+      "link": "https://project.com"
+    },
+    {
+      "id": 3,
+      "title": "FitLife",
+      "description": "A health tracking app built with React.js for monitoring sleep, workouts, and water intake. Features responsive UI and animated data visualizations using Chart.js.",
+      "image": "image.jpg",
+      "technologies": ["React", "Tailwind CSS", "Chart.js", "Local Storage"],
+      "link": "https://project.com"
+    },
+    {
+      "id": 4,
+      "title": "NHPC Internal Complaint Management System",
+      "description": "A real-world project developed during internship at NHPC. Built using ASP.NET Core MVC with Oracle Express Database, featuring secure login, complaint tracking, and notification management.",
+      "image": "image.jpg",
+      "technologies": ["ASP.NET Core MVC", "Oracle Database", "Bootstrap", "C#"],
       "link": "https://project.com"
     }
   ],
