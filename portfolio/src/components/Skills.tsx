@@ -29,7 +29,7 @@ const Skills = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://uvaiskhan078.vercel.app';
+    const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000';
 
     // Fetch skills data
     fetch(`${apiBase}/api/skills`)
