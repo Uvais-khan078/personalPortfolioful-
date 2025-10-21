@@ -91,7 +91,7 @@ const Layout = () => {
               </a>
             </div>
             <div className="border-t border-gray-700 pt-8">
-              <p className="text-gray-400">&copy; 2023 {personal.name || 'Uvais Khan'}. All rights reserved.</p>
+              <p className="text-gray-400">&copy; 2025 {personal.name || 'Uvais Khan'}. All rights reserved.</p>
             </div>
           </div>
         </div>
