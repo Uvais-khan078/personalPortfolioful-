@@ -24,7 +24,7 @@ const Projects = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://personal-portfolioful.vercel.app';
+    const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
     fetch(`${apiBase}/api/projects`)
       .then(response => response.json())
       .then(data => {

@@ -1,5 +1,6 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 import json
+import os
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ with open('data.json', 'r') as f:
 @app.route('/api/personal')
 def get_personal():
     response = jsonify(data['personal'])
-    response.headers['Access-Control-Allow-Origin'] = 'https://uvaiskhan078.vercel.app'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
     return response
@@ -20,7 +21,7 @@ def get_personal():
 @app.route('/api/education')
 def get_education():
     response = jsonify(data['education'])
-    response.headers['Access-Control-Allow-Origin'] = 'https://uvaiskhan078.vercel.app'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
     return response
@@ -28,7 +29,7 @@ def get_education():
 @app.route('/api/skills')
 def get_skills():
     response = jsonify(data['skills'])
-    response.headers['Access-Control-Allow-Origin'] = 'https://uvaiskhan078.vercel.app'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
     return response
@@ -36,7 +37,7 @@ def get_skills():
 @app.route('/api/social')
 def get_social():
     response = jsonify(data['social'])
-    response.headers['Access-Control-Allow-Origin'] = 'https://uvaiskhan078.vercel.app'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
     return response
@@ -44,7 +45,7 @@ def get_social():
 @app.route('/api/projects')
 def get_projects():
     response = jsonify(data['projects'])
-    response.headers['Access-Control-Allow-Origin'] = 'https://uvaiskhan078.vercel.app'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
     return response
@@ -52,7 +53,7 @@ def get_projects():
 @app.route('/api/basicProjects')
 def get_basic_projects():
     response = jsonify(data['basicProjects'])
-    response.headers['Access-Control-Allow-Origin'] = 'https://uvaiskhan078.vercel.app'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
     return response
@@ -60,7 +61,7 @@ def get_basic_projects():
 @app.route('/api/blogs')
 def get_blogs():
     response = jsonify(data['blogs'])
-    response.headers['Access-Control-Allow-Origin'] = 'https://uvaiskhan078.vercel.app'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
     return response
@@ -70,12 +71,20 @@ def get_blog_post(blog_id):
     blog_posts = data.get('blogPosts', {})
     if str(blog_id) not in blog_posts:
         response = jsonify({'error': 'Blog post not found'})
-        response.headers['Access-Control-Allow-Origin'] = 'https://uvaiskhan078.vercel.app'
+        response.headers['Access-Control-Allow-Origin'] = '*'
         response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
         response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
         return response, 404
     response = jsonify(blog_posts[str(blog_id)])
-    response.headers['Access-Control-Allow-Origin'] = 'https://uvaiskhan078.vercel.app'
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    return response
+
+@app.route('/images/<path:filename>')
+def serve_image(filename):
+    response = send_from_directory('images', filename)
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
     return response
