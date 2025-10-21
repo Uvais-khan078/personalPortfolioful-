@@ -94,7 +94,7 @@ const Home = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
 
-  const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000';
+  const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://uvaiskhan078.vercel.app';
 
   const openModal = (project: Project) => {
     setSelectedProject(project);
