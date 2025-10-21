@@ -108,7 +108,7 @@
       "id": 1,
       "title": "Village360",
       "description": "A full-stack rural development analytics platform deployed on Vercel. It collects and visualizes data about village demographics, resources, and progress indicators. Built with a modern TypeScript frontend and Python backend, it offers dashboards for government agencies and NGOs to monitor village development in real-time.",
-      "image": "image.jpg",
+      "image": "images/village360.png",
       "technologies": ["TypeScript", "React", "Tailwind CSS", "Python", "Vercel"],
       "link": "https://village360.vercel.app",
       "githubLink": "https://github.com/Uvais-khan078/village360"
@@ -117,7 +117,7 @@
       "id": 2,
       "title": "CivicSense",
       "description": "A smart civic issue reporting and management platform built with React + Vite. It allows citizens to log complaints about civic infrastructure such as waste collection, streetlights, and road maintenance. The system includes categorized issue tracking, real-time status updates, and an admin dashboard for efficient resolution.",
-      "image": "image.jpg",
+      "image": "images/civicsense.png",
       "technologies": ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
       "link": "#",
       "githubLink": "https://github.com/Uvais-khan078/civicSense"
@@ -126,7 +126,7 @@
       "id": 3,
       "title": " Internal Complaint Management System",
       "description": "A real-world project developed during internship at NHPC. Built using ASP.NET Core MVC with Oracle Express Database, featuring secure login, complaint tracking, and notification management.",
-      "image": "image.jpg",
+      "image": "images/complaintsys.png",
       "technologies": ["ASP.NET Core MVC", "Oracle Database", "Bootstrap", "C#"],
       "link": "#",
       "githubLink": "https://github.com/Uvais-khan078/ICMS-nhpc"
@@ -135,7 +135,7 @@
       "id": 4,
       "title": "CarbonZero",
       "description": "A solar power plant monitoring and management system built with ASP.NET Core MVC. It enables tracking of solar output, equipment performance, and maintenance schedules with real-time visualizations. Features include admin and technician dashboards, data logs, and system analytics to help optimize power efficiency.",
-      "image": "image.jpg",
+      "image": "images/carbon0.png",
       "technologies": ["ASP.NET Core MVC", "C#", "HTML", "CSS", "Tailwind CSS", "JavaScript"],
       "link": "#",
       "githubLink": "https://github.com/Uvais-khan078/CarbonZero"
@@ -144,7 +144,7 @@
       "id": 5,
       "title": "SecurityRiskScanner",
       "description": "A web-based security scanner that detects vulnerabilities such as SQL injection and XSS. Generates detailed reports and stores results in PostgreSQL. Built with strong emphasis on code security and accessibility.",
-      "image": "image.jpg",
+      "image": "images/riskscanner.png",
       "technologies": ["React", "Flask", "PostgreSQL", "TypeScript"],
       "link": "https://b03d144f-5569-4347-ae2e-f10ee572f295-00-172j77ns5rees.sisko.replit.dev/",
       "githubLink": "https://replit.com/@uvaiswalikhan/SecurityRiskScanner"
@@ -153,7 +153,7 @@
       "id": 6,
       "title": "FitLife",
       "description": "A health tracking app built with React.js for monitoring sleep, workouts, and water intake. Features responsive UI and animated data visualizations using Chart.js.",
-      "image": "image.jpg",
+      "image": "images/fitlife.png",
       "technologies": ["React", "Tailwind CSS", "Chart.js", "Local Storage"],
       "link": "#",
       "githubLink": "https://github.com/Uvais-khan078/FitLife"
@@ -162,7 +162,7 @@
       "id": 7,
       "title": "RiverGuard",
       "description": "A comprehensive dashboard system for monitoring and safeguarding river health. Includes user authentication, admin management, and real-time data visualization using Flask and PostgreSQL.",
-      "image": "image.jpg",
+      "image": "images/riverGaurd.png",
       "technologies": ["Flask", "PostgreSQL", "React", "Tailwind CSS", "Chart.js"],
       "link": "#",
       "githubLink": "https://github.com/Uvais-khan078/riverguard"
@@ -225,7 +225,7 @@
       "id": 1,
       "title": "My NHPC Internship Experience: Building Real-World Software with ASP.NET Core MVC",
       "description": "During my internship at NHPC Limited, I gained real-world exposure to enterprise-level software development. My primary responsibility was developing an Internal Complaint Management System using ASP.NET Core MVC and Oracle Database.",
-      "image": "image.jpg",
+      "image": "images/blog1.png",
       "link": "https://uvaiskhan078.vercel.app/",
       "content": "During my internship at NHPC Limited, I gained real-world exposure to enterprise-level software development. My primary responsibility was developing an Internal Complaint Management System using ASP.NET Core MVC and Oracle Database. The project aimed to digitalize maintenance and employee issue tracking across departments. Working with experienced developers taught me the importance of secure coding, modular architecture, and proper database integration. I also learned about deployment pipelines and UI optimization for internal tools. This experience strengthened my understanding of backend systems, database management, and the practical aspects of cybersecurity implementation.",
       "date": "2025-09-01",
