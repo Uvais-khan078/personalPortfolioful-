@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ChevronDown, User, MapPin, Mail, Phone, Book, Briefcase, Github, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { ChevronDown, User, MapPin, Mail, Phone, Book, Briefcase, Github, X, Linkedin, Instagram } from 'lucide-react';
 import ProjectModal from './ProjectModal';
 
 interface Personal {
@@ -383,7 +383,7 @@ const Home = () => {
                       <Github className="w-5 h-5 text-gray-700" />
                     </a>
                     <a href={social.twitter} className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
-                      <Twitter className="w-5 h-5 text-gray-700" />
+                      <X className="w-5 h-5 text-gray-700" />
                     </a>
                     <a href={social.linkedin} className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
                       <Linkedin className="w-5 h-5 text-gray-700" />
