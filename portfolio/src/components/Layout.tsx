@@ -26,7 +26,7 @@ const Layout = () => {
   const [social, setSocial] = useState<Partial<Social>>({});
 
   useEffect(() => {
-    const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://personal-portfolioful.vercel.app';
+    const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://uvaiskhan078.vercel.app';
 
     // Fetch personal data
     fetch(`${apiBase}/api/personal`)
@@ -75,7 +75,7 @@ const Layout = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-2xl font-bold mb-4">{personal.name || 'Uvais Khan'}</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto mb-8">{personal.title || 'Frontend Developer & UI/UX Designer creating digital experiences that matter.'}</p>
+            <p className="text-gray-400 max-w-2xl mx-auto mb-8">{personal.title || 'B.Tech Cybersecurity Student | Intern at NHPC Limited | Frontend & Backend Developer'}</p>
             <div className="flex justify-center space-x-6 mb-8">
               <a href={social.github || '#'} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
                 <Github className="w-6 h-6" />
@@ -91,7 +91,7 @@ const Layout = () => {
               </a>
             </div>
             <div className="border-t border-gray-700 pt-8">
-              <p className="text-gray-400">&copy; 2025 {personal.name || 'Your Name'}. All rights reserved.</p>
+              <p className="text-gray-400">&copy; 2023 {personal.name || 'Uvais Khan'}. All rights reserved.</p>
             </div>
           </div>
         </div>
