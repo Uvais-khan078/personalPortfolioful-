@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Router, Route, Switch, Link } from 'wouter';
-import { Menu, Github, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Menu, Github, X, Linkedin, Instagram } from 'lucide-react';
 import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
@@ -90,16 +90,16 @@ function App() {
               <h2 className="text-2xl font-bold mb-4">{personal.name || 'Uvais Khan'}</h2>
               <p className="text-gray-400 max-w-2xl mx-auto mb-8">{personal.title || 'Frontend Developer & UI/UX Designer creating digital experiences that matter.'}</p>
               <div className="flex justify-center space-x-6 mb-8">
-                <a href={social.github || '#'} className="text-gray-400 hover:text-white transition">
+                <a href={social.github || '#'} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
                   <Github className="w-6 h-6" />
                 </a>
-                <a href={social.twitter || '#'} className="text-gray-400 hover:text-white transition">
-                  <Twitter className="w-6 h-6" />
+                <a href={social.twitter || '#'} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+                  <X className="w-6 h-6" />
                 </a>
-                <a href={social.linkedin || '#'} className="text-gray-400 hover:text-white transition">
+                <a href={social.linkedin || '#'} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
                   <Linkedin className="w-6 h-6" />
                 </a>
-                <a href={social.instagram || '#'} className="text-gray-400 hover:text-white transition">
+                <a href={social.instagram || '#'} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
                   <Instagram className="w-6 h-6" />
                 </a>
               </div>
