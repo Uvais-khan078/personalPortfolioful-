@@ -364,7 +364,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.slice(0, 3).map((project, index) => (
               <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md project-card transition duration-300" data-aos="fade-up" data-aos-delay={index * 100}>
-                <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                <img src={`${apiBase}/${project.image}`} alt={project.title} className="w-full h-48 object-cover" />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h3>
                   <p className="text-gray-600 mb-4">{project.description}</p>

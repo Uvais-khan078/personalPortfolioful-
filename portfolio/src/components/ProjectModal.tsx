@@ -50,7 +50,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, project })
               &times;
             </button>
           </div>
-          <img src={project.image} alt={project.title} className="w-full h-64 object-cover rounded-lg mb-4" />
+          <img src={`${import.meta.env.VITE_API_BASE_URL || 'https://uvaiskhan078.vercel.app'}/${project.image}`} alt={project.title} className="w-full h-64 object-cover rounded-lg mb-4" />
           <p className="text-gray-600 mb-4">{project.description}</p>
           <div className="flex flex-wrap gap-2 mb-4">
             {project.technologies.map((tech, index) => (
