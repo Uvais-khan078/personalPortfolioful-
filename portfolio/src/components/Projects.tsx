@@ -23,8 +23,9 @@ const Projects = () => {
   const [basicProjects, setBasicProjects] = useState<BasicProject[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
-  useEffect(() => {
   const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://uvaiskhan078.vercel.app';
+
+  useEffect(() => {
     fetch(`${apiBase}/api/projects`)
       .then(response => response.json())
       .then(data => {
@@ -72,7 +73,7 @@ const Projects = () => {
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
-              <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+              <img src={`${apiBase}/${project.image}`} alt={project.title} className="w-full h-48 object-cover" />
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h3>
                 <p className="text-gray-600 mb-4">{project.description}</p>
