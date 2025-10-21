@@ -19,6 +19,9 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
+// Serve static images
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
 // Load data
 const dataPath = path.join(__dirname, 'data.json');
 let data;

@@ -6,8 +6,9 @@ interface BlogPost {
   title: string;
   description: string;
   image: string;
-  date?: string;
-  readTime?: string;
+  date: string;
+  readTime: string;
+  excerpt: string;
 }
 
 const Blog = () => {
@@ -15,7 +16,7 @@ const Blog = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-  const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://uvaiskhan078.vercel.app';
+    const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://uvaiskhan078.vercel.app';
 
     // Fetch blogs
     fetch(`${apiBase}/api/blogs`)
@@ -64,7 +65,7 @@ const Blog = () => {
                     <span>{blog.readTime}</span>
                   </div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">{blog.title}</h3>
-                  <p className="text-gray-600 mb-4">{blog.description}</p>
+                  <p className="text-gray-600 mb-4">{blog.excerpt}</p>
                   <Link to={`/blog/${blog.id}`} className="text-indigo-600 font-medium hover:text-indigo-800 transition">Read More →</Link>
                 </div>
               </div>
