@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'wouter';
-import { Github, Twitter, Linkedin, Instagram, Menu } from 'lucide-react';
+import { Github, X, Linkedin, Instagram, Menu } from 'lucide-react';
 
 interface Personal {
   name: string;
@@ -77,17 +77,17 @@ const Layout = () => {
             <h2 className="text-2xl font-bold mb-4">{personal.name || 'Uvais Khan'}</h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-8">{personal.title || 'Frontend Developer & UI/UX Designer creating digital experiences that matter.'}</p>
             <div className="flex justify-center space-x-6 mb-8">
-              <a href={social.github || '#'} className="text-gray-400 hover:text-white transition">
-                <i data-feather="github" className="w-6 h-6"></i>
+              <a href={social.github || '#'} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+                <Github className="w-6 h-6" />
               </a>
-              <a href={social.twitter || '#'} className="text-gray-400 hover:text-white transition">
-                <i data-feather="twitter" className="w-6 h-6"></i>
+              <a href={social.twitter || '#'} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+                <X className="w-6 h-6" />
               </a>
-              <a href={social.linkedin || '#'} className="text-gray-400 hover:text-white transition">
-                <i data-feather="linkedin" className="w-6 h-6"></i>
+              <a href={social.linkedin || '#'} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+                <Linkedin className="w-6 h-6" />
               </a>
-              <a href={social.instagram || '#'} className="text-gray-400 hover:text-white transition">
-                <i data-feather="instagram" className="w-6 h-6"></i>
+              <a href={social.instagram || '#'} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+                <Instagram className="w-6 h-6" />
               </a>
             </div>
             <div className="border-t border-gray-700 pt-8">

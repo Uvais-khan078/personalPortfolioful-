@@ -379,16 +379,16 @@ const Home = () => {
                 <div className="mt-8">
                   <h4 className="font-medium text-gray-800 mb-4">Follow Me</h4>
                   <div className="flex space-x-4">
-                    <a href={social.github} className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
+                    <a href={social.github} target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
                       <Github className="w-5 h-5 text-gray-700" />
                     </a>
-                    <a href={social.twitter} className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
+                    <a href={social.twitter} target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
                       <X className="w-5 h-5 text-gray-700" />
                     </a>
-                    <a href={social.linkedin} className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
+                    <a href={social.linkedin} target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
                       <Linkedin className="w-5 h-5 text-gray-700" />
                     </a>
-                    <a href={social.instagram} className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
+                    <a href={social.instagram} target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-3 rounded-full hover:bg-indigo-100 transition">
                       <Instagram className="w-5 h-5 text-gray-700" />
                     </a>
                   </div>
