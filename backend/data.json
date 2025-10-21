@@ -2,7 +2,7 @@
   "personal": {
     "name": "Uvais Khan",
     "title": "B.Tech Cybersecurity Student | Intern at NHPC Limited | Frontend & Backend Developer",
-    "description": "As a B.Tech Cybersecurity student at the Faculty of Technology, Veer Madho Singh Bhandari Uttarakhand Technical University, I’m passionate about cybersecurity, ethical hacking, and full-stack web development. I enjoy learning about secure coding, Linux systems, and OSINT. My goal is to build secure, efficient, and impactful digital solutions.",
+    "description": "As a B.Tech Cybersecurity student at the Faculty of Technology, Veer Madho Singh Bhandari Uttarakhand Technical University, I'm passionate about cybersecurity, ethical hacking, and full-stack web development. I enjoy learning about secure coding, Linux systems, and OSINT. My goal is to build secure, efficient, and impactful digital solutions.",
     "aboutDescription": "Hello! I'm Uvais Khan, a dedicated B.Tech Cybersecurity student at the Faculty of Technology, Veer Madho Singh Bhandari Uttarakhand Technical University. My journey in tech began with a passion for understanding how systems work, which led me to specialize in cybersecurity, ethical hacking, and full-stack web development. I love exploring Linux environments, diving into OSINT techniques, and building secure applications that make a real difference. Beyond academics, I've gained practical experience through internships at NHPC Limited, where I developed enterprise-level software using ASP.NET Core MVC and Oracle Database. I'm also certified as a Full Stack Developer from CodeYogi, and I actively participate in hackathons and tech communities. My hobbies include exploring Linux distributions, building web apps, participating in hackathons, public speaking, and watching tech documentaries. My ultimate goal is to create secure, efficient, and impactful digital solutions that contribute to a safer and more innovative world.",
     "image": "images/uvais-image.jpg",
     "aboutImage": "images/uvais-image2.jpg",
@@ -106,59 +106,66 @@
   "projects": [
     {
       "id": 1,
-      "title": "RiverGuard",
-      "description": "A comprehensive dashboard system for monitoring and safeguarding river health. Includes user authentication, admin management, and real-time data visualization using Flask and PostgreSQL.",
-      "image": "image.jpg",
-      "technologies": ["Flask", "PostgreSQL", "React", "Tailwind CSS", "Chart.js"],
-      "link": "https://project.com"
-    },
-    {
-      "id": 2,
-      "title": "SecurityRiskScanner",
-      "description": "A web-based security scanner that detects vulnerabilities such as SQL injection and XSS. Generates detailed reports and stores results in PostgreSQL. Built with strong emphasis on code security and accessibility.",
-      "image": "image.jpg",
-      "technologies": ["React", "Flask", "PostgreSQL", "TypeScript"],
-      "link": "https://project.com"
-    },
-    {
-      "id": 3,
-      "title": "FitLife",
-      "description": "A health tracking app built with React.js for monitoring sleep, workouts, and water intake. Features responsive UI and animated data visualizations using Chart.js.",
-      "image": "image.jpg",
-      "technologies": ["React", "Tailwind CSS", "Chart.js", "Local Storage"],
-      "link": "https://project.com"
-    },
-    {
-      "id": 4,
-      "title": "NHPC Internal Complaint Management System",
-      "description": "A real-world project developed during internship at NHPC. Built using ASP.NET Core MVC with Oracle Express Database, featuring secure login, complaint tracking, and notification management.",
-      "image": "image.jpg",
-      "technologies": ["ASP.NET Core MVC", "Oracle Database", "Bootstrap", "C#"],
-      "link": "https://project.com"
-    },
-    {
-      "id": 5,
-      "title": "CarbonZero",
-      "description": "A solar power plant monitoring and management system built with ASP.NET Core MVC. It enables tracking of solar output, equipment performance, and maintenance schedules with real-time visualizations. Features include admin and technician dashboards, data logs, and system analytics to help optimize power efficiency.",
-      "image": "image.jpg",
-      "technologies": ["ASP.NET Core MVC", "C#", "HTML", "CSS", "Tailwind CSS", "JavaScript"],
-      "link": "https://github.com/Uvais-khan078/CarbonZero"
-    },
-    {
-      "id": 6,
-      "title": "CivicSense",
-      "description": "A smart civic issue reporting and management platform built with React + Vite. It allows citizens to log complaints about civic infrastructure such as waste collection, streetlights, and road maintenance. The system includes categorized issue tracking, real-time status updates, and an admin dashboard for efficient resolution.",
-      "image": "image.jpg",
-      "technologies": ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
-      "link": "https://github.com/Uvais-khan078/civicSense"
-    },
-    {
-      "id": 7,
       "title": "Village360",
       "description": "A full-stack rural development analytics platform deployed on Vercel. It collects and visualizes data about village demographics, resources, and progress indicators. Built with a modern TypeScript frontend and Python backend, it offers dashboards for government agencies and NGOs to monitor village development in real-time.",
       "image": "image.jpg",
       "technologies": ["TypeScript", "React", "Tailwind CSS", "Python", "Vercel"],
-      "link": "https://github.com/Uvais-khan078/village360"
+      "link": "https://village360.vercel.app",
+      "githubLink": "https://github.com/Uvais-khan078/village360"
+    },
+    {
+      "id": 2,
+      "title": "CivicSense",
+      "description": "A smart civic issue reporting and management platform built with React + Vite. It allows citizens to log complaints about civic infrastructure such as waste collection, streetlights, and road maintenance. The system includes categorized issue tracking, real-time status updates, and an admin dashboard for efficient resolution.",
+      "image": "image.jpg",
+      "technologies": ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
+      "link": "#",
+      "githubLink": "https://github.com/Uvais-khan078/civicSense"
+    },
+    {
+      "id": 3,
+      "title": " Internal Complaint Management System",
+      "description": "A real-world project developed during internship at NHPC. Built using ASP.NET Core MVC with Oracle Express Database, featuring secure login, complaint tracking, and notification management.",
+      "image": "image.jpg",
+      "technologies": ["ASP.NET Core MVC", "Oracle Database", "Bootstrap", "C#"],
+      "link": "#",
+      "githubLink": "https://github.com/Uvais-khan078/ICMS-nhpc"
+    },
+    {
+      "id": 4,
+      "title": "CarbonZero",
+      "description": "A solar power plant monitoring and management system built with ASP.NET Core MVC. It enables tracking of solar output, equipment performance, and maintenance schedules with real-time visualizations. Features include admin and technician dashboards, data logs, and system analytics to help optimize power efficiency.",
+      "image": "image.jpg",
+      "technologies": ["ASP.NET Core MVC", "C#", "HTML", "CSS", "Tailwind CSS", "JavaScript"],
+      "link": "#",
+      "githubLink": "https://github.com/Uvais-khan078/CarbonZero"
+    },
+    {
+      "id": 5,
+      "title": "SecurityRiskScanner",
+      "description": "A web-based security scanner that detects vulnerabilities such as SQL injection and XSS. Generates detailed reports and stores results in PostgreSQL. Built with strong emphasis on code security and accessibility.",
+      "image": "image.jpg",
+      "technologies": ["React", "Flask", "PostgreSQL", "TypeScript"],
+      "link": "https://b03d144f-5569-4347-ae2e-f10ee572f295-00-172j77ns5rees.sisko.replit.dev/",
+      "githubLink": "https://replit.com/@uvaiswalikhan/SecurityRiskScanner"
+    },
+    {
+      "id": 6,
+      "title": "FitLife",
+      "description": "A health tracking app built with React.js for monitoring sleep, workouts, and water intake. Features responsive UI and animated data visualizations using Chart.js.",
+      "image": "image.jpg",
+      "technologies": ["React", "Tailwind CSS", "Chart.js", "Local Storage"],
+      "link": "#",
+      "githubLink": "https://github.com/Uvais-khan078/FitLife"
+    },
+    {
+      "id": 7,
+      "title": "RiverGuard",
+      "description": "A comprehensive dashboard system for monitoring and safeguarding river health. Includes user authentication, admin management, and real-time data visualization using Flask and PostgreSQL.",
+      "image": "image.jpg",
+      "technologies": ["Flask", "PostgreSQL", "React", "Tailwind CSS", "Chart.js"],
+      "link": "#",
+      "githubLink": "https://github.com/Uvais-khan078/riverguard"
     }
   ],
   "basicProjects": [
@@ -179,7 +186,7 @@
     },
     {
       "title": "Ask-Jud Clone",
-      "description": "A clone project replicating the Ask-Jud platform’s front-end interface.",
+      "description": "A clone project replicating the Ask-Jud platform's front-end interface.",
       "technologies": ["HTML", "CSS (TailwindCSS)", "React", "JSX"]
     },
     {

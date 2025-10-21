@@ -8,6 +8,8 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Blog from './components/Blog';
 import BlogPost from './components/BlogPost';
+import ErrorPage from './components/ErrorPage';
+import UnderDevelopmentPage from './components/UnderDevelopmentPage';
 
 interface Personal {
   name: string;
@@ -31,21 +33,38 @@ interface Social {
 function App() {
   const [personal, setPersonal] = useState<Partial<Personal>>({});
   const [social, setSocial] = useState<Partial<Social>>({});
+  const [dataError, setDataError] = useState<string | null>(null);
 
   useEffect(() => {
     const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://personal-portfolioful.vercel.app';
 
     // Fetch personal data
     fetch(`${apiBase}/api/personal`)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then(data => setPersonal(data))
-      .catch(error => console.error('Error fetching personal data:', error));
+      .catch(error => {
+        console.error('Error fetching personal data:', error);
+        setDataError('Unable to load personal information. Please try again later.');
+      });
 
     // Fetch social data
     fetch(`${apiBase}/api/social`)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then(data => setSocial(data))
-      .catch(error => console.error('Error fetching social data:', error));
+      .catch(error => {
+        console.error('Error fetching social data:', error);
+        setDataError('Unable to load social links. Please try again later.');
+      });
   }, []);
 
   return (
@@ -81,6 +100,8 @@ function App() {
           <Route path="/projects" component={Projects} />
           <Route path="/blog" component={Blog} />
           <Route path="/blog/:id" component={BlogPost} />
+          <Route path="/under-development" component={UnderDevelopmentPage} />
+          <Route component={() => <ErrorPage errorType="404" />} />
         </Switch>
 
         {/* Footer */}

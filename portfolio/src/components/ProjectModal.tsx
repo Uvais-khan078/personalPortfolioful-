@@ -19,6 +19,24 @@ interface ProjectModalProps {
 const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, project }) => {
   if (!isOpen || !project) return null;
 
+  const handleDemoClick = () => {
+    if (project.link && project.link !== 'https://project.com' && project.link !== '#') {
+      window.open(project.link, '_blank', 'noopener,noreferrer');
+    } else {
+      // Store GitHub link in localStorage and redirect to under development page
+      if (project.githubLink && project.githubLink !== 'https://project.com' && project.githubLink !== '#') {
+        localStorage.setItem('currentProjectGithub', project.githubLink);
+      }
+      window.location.href = '/under-development';
+    }
+  };
+
+  const handleGithubClick = () => {
+    if (project.githubLink && project.githubLink !== 'https://project.com' && project.githubLink !== '#') {
+      window.open(project.githubLink, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={onClose}>
       <div className="bg-white rounded-lg max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
@@ -42,12 +60,19 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, project })
             ))}
           </div>
           <div className="flex gap-4">
-            <a href={project.link || '#'} className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+            <button
+              onClick={handleDemoClick}
+              className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition"
+            >
               View Demo
-            </a>
-            <a href="#" className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition">
+            </button>
+            <button
+              onClick={handleGithubClick}
+              disabled={!project.githubLink || project.githubLink === 'https://project.com' || project.githubLink === '#'}
+              className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
+            >
               GitHub
-            </a>
+            </button>
           </div>
         </div>
       </div>

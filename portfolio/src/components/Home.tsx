@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronDown, User, MapPin, Mail, Phone, Book, Briefcase, Github, X, Linkedin, Instagram } from 'lucide-react';
 import ProjectModal from './ProjectModal';
+import ErrorPage from './ErrorPage';
 
 interface Personal {
   name: string;
@@ -85,6 +86,7 @@ const Home = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -156,7 +158,13 @@ const Home = () => {
       fetch(`${apiBase}/api/blogs`),
       fetch(`${apiBase}/api/skills`)
     ])
-    .then(responses => Promise.all(responses.map(r => r.json())))
+    .then(responses => {
+      const failedRequests = responses.filter(r => !r.ok);
+      if (failedRequests.length > 0) {
+        throw new Error('Some API requests failed');
+      }
+      return Promise.all(responses.map(r => r.json()));
+    })
     .then(([personalData, educationData, socialData, projectsData, basicProjectsData, blogsData, skillsData]) => {
       setPersonal(personalData);
       setEducation(educationData);
@@ -172,9 +180,25 @@ const Home = () => {
     })
     .catch(error => {
       console.error('Error fetching data:', error);
+      setError('Unable to load portfolio data. The backend server might be under maintenance.');
       setLoading(false);
     });
   }, []);
+
+  if (error) {
+    return <ErrorPage errorType="server" message={error} />;
+  }
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-indigo-600 mx-auto mb-4"></div>
+          <p className="text-gray-600 text-lg">Loading portfolio...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -252,11 +276,11 @@ const Home = () => {
             <div className="w-20 h-1 bg-indigo-600 mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
             <p className="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">My academic background and professional journey.</p>
           </div>
-          
+
           <div className="relative">
             {/* Timeline line */}
             <div className="border-l-2 border-indigo-600 absolute h-full left-1/2 transform -translate-x-1/2"></div>
-            
+
             {/* Timeline items */}
             <div className="space-y-12">
               {education.map((item, index) => (
