@@ -166,7 +166,7 @@ const Home = () => {
           </div>
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/3 mb-10 md:mb-0" data-aos="fade-right">
-              <img src={`/images/${personal.aboutImage ? personal.aboutImage.split('/')[1] : personal.image ? personal.image.split('/')[1] : ''}`} alt="Profile" className="rounded-full w-64 h-64 object-cover mx-auto shadow-lg" />
+              <img src={`${apiBase}/images/${personal.aboutImage ? personal.aboutImage.split('/')[1] : personal.image ? personal.image.split('/')[1] : ''}`} alt="Profile" className="rounded-full w-64 h-64 object-cover mx-auto shadow-lg" />
             </div>
             <div className="md:w-2/3 md:pl-16" data-aos="fade-left">
               <h3 className="text-2xl font-semibold text-gray-800 mb-4">Who am I?</h3>
