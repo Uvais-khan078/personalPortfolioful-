@@ -31,22 +31,22 @@
       "title": "Diploma in Engineering",
       "institution": "Government Polytechnic Kashipur",
       "duration": "2020 - 2023",
-      "description": "Completed diploma with core courses in computer science fundamentals, software engineering, and networking.",
+      "description": "Completed diploma with foundational knowledge in engineering principles and project management. Served as the student commander of the college's NSS unit.",
       "type": "education"
     },
     {
       "id": 3,
       "title": "Full Stack Developer Certification",
-      "institution": "CodeYogi",
+      "institution": "CodeYogi(Remote)",
       "duration": "Dec 2021 - Jul 2022",
-      "description": "Learned frontend and backend web development using HTML, CSS, JavaScript, React, TypeScript, and Node.js.",
+      "description": "Learned frontend web development using HTML, CSS,tailwindCSS, JavaScript, TypeScript and react.js.",
       "type": "Certification"
     },
     {
       "id": 4,
       "title": "Post Graduate Diploma in Financial Accounting (PGDFA)",
-      "institution": "PGDFA Institute",
-      "duration": "Feb 2023 - March 2024",
+      "institution": "tally Academey",
+      "duration": "2023 - 2024",
       "description": "Studied Financial Accounting, GST, and Tally ERP software.",
       "type": "Certification"
     },
@@ -54,7 +54,7 @@
       "id": 5,
       "title": "12th (Non-Medical)",
       "institution": "Open Board (NIOS)",
-      "duration": "2022 - 2023",
+      "duration": "2023",
       "description": "Completed senior secondary education in Physics, Chemistry, and Mathematics.",
       "type": "education"
     },
@@ -62,8 +62,8 @@
       "id": 6,
       "title": "10th (High School)",
       "institution": "Hind Public School, CBSE",
-      "duration": "2015 - 2020",
-      "description": "Completed secondary education with distinction in Mathematics and Science.",
+      "duration": "2020",
+      "description": "Completed secondary education with a focus on Mathematics and Science.",
       "type": "education"
     }
   ],
