@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Router, Route, Switch, Link } from 'wouter';
 import { Menu, Github, X, Linkedin, Instagram } from 'lucide-react';
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
@@ -132,6 +133,7 @@ function App() {
           </div>
         </footer>
         <SpeedInsights />
+        <Analytics />
       </div>
     </Router>
   );
