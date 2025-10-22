@@ -262,7 +262,7 @@ const Home = () => {
                   </ul>
                 </div>
               </div>
-              <a href="#" className="inline-block mt-8 px-6 py-3 bg-indigo-600 text-white rounded-full font-medium hover:bg-indigo-700 transition">Download CV</a>
+              <a href={`${apiBase}/cv`} target="_blank" rel="noopener noreferrer" className="inline-block mt-8 px-6 py-3 bg-indigo-600 text-white rounded-full font-medium hover:bg-indigo-700 transition">Download CV</a>
             </div>
           </div>
         </div>

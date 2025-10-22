@@ -68,6 +68,17 @@ app.get('/api/social', (req, res) => {
   res.json(data.social);
 });
 
+app.get('/cv', (req, res) => {
+  const cvPath = path.join(__dirname, 'docs', 'cv.pdf');
+  res.setHeader('Content-Disposition', 'attachment; filename="Uvais_Khan_CV.pdf"');
+  res.sendFile(cvPath, (err) => {
+    if (err) {
+      console.error('Error downloading CV:', err);
+      res.status(500).json({ error: 'Failed to download CV' });
+    }
+  });
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

@@ -17,7 +17,7 @@ body {
 }
 
 .hero-bg {
-  background: url('https://static.photos/technology/1920x1080/1') no-repeat center center;
+  background: url('./assets/utuddn.png') no-repeat center center;
   background-size: cover;
   position: relative;
 }

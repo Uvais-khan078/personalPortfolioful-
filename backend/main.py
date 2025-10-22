@@ -171,5 +171,29 @@ def serve_image(filename):
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
     return response
 
+
+@app.route('/cv')
+def download_cv():
+    """Serve the CV PDF from the docs folder as an attachment with CORS headers.
+
+    Uses `send_from_directory`. For compatibility with different Flask
+    versions we attempt to set an attachment filename via `download_name`
+    (newer Flask) and fall back to `attachment_filename` (older Flask).
+    """
+    docs_dir = 'docs'
+    filename = 'cv.pdf'
+    try:
+        # Try newer Flask parameter first
+        response = send_from_directory(docs_dir, filename, as_attachment=True, download_name='Uvais_Khan_CV.pdf')
+    except TypeError:
+        # Fallback for older Flask versions that expect attachment_filename
+        response = send_from_directory(docs_dir, filename, as_attachment=True, attachment_filename='Uvais_Khan_CV.pdf')
+
+    # Add CORS headers so the frontend can download/open the file
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    return response
+
 if __name__ == '__main__':
     app.run(debug=True, port=8000)

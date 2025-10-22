@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_file
 import json
 import os
 from flask_cors import CORS
@@ -41,5 +41,12 @@ def get_blog_post(post_id):
 def get_social():
     return jsonify(data['social'])
 
+@app.route('/cv', methods=['GET'])
+def download_cv():
+    try:
+        return send_file('docs/cv.pdf', as_attachment=True, download_name='Uvais_Khan_CV.pdf')
+    except FileNotFoundError:
+        return jsonify({'error': 'CV file not found'}), 404
+
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=8000)
