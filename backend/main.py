@@ -86,7 +86,10 @@ def get_basic_projects():
 
 @app.route('/api/blogs')
 def get_blogs():
-    response = jsonify(data['blogs'])
+    # Load blogs data from blogs.json
+    with open('blogs.json', 'r') as f:
+        blogs_data = json.load(f)
+    response = jsonify(blogs_data['blogs'])
     response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
@@ -94,7 +97,10 @@ def get_blogs():
 
 @app.route('/api/blog/<int:blog_id>')
 def get_blog_post(blog_id):
-    blog_posts = data.get('blogPosts', {})
+    # Load blogs data from blogs.json
+    with open('blogs.json', 'r') as f:
+        blogs_data = json.load(f)
+    blog_posts = blogs_data.get('blogPosts', {})
     if str(blog_id) not in blog_posts:
         response = jsonify({'error': 'Blog post not found'})
         response.headers['Access-Control-Allow-Origin'] = '*'

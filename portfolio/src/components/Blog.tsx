@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 
 interface BlogPost {
   id: number;
+  shortTitle?: string;
   title: string;
   description: string;
   image: string;
@@ -14,15 +15,14 @@ interface BlogPost {
 const Blog = () => {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://uvaiskhan078.vercel.app';
 
   useEffect(() => {
-    const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://uvaiskhan078.vercel.app';
-
     // Fetch blogs
     fetch(`${apiBase}/api/blogs`)
       .then(response => response.json())
       .then(data => {
-        setBlogs(data);
+        setBlogs(data); // Backend returns direct array
         setLoading(false);
       })
       .catch(error => {
@@ -57,15 +57,15 @@ const Blog = () => {
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >
-                <img src={blog.image} alt={blog.title} className="w-full h-48 object-cover" />
+                <img src={`${apiBase}/${blog.image}`} alt={blog.title} className="w-full h-48 object-cover" />
                 <div className="p-6">
                   <div className="flex items-center text-sm text-gray-500 mb-2">
                     <span>{blog.date}</span>
                     <span className="mx-2">•</span>
                     <span>{blog.readTime}</span>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">{blog.title}</h3>
-                  <p className="text-gray-600 mb-4">{blog.excerpt}</p>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">{blog.shortTitle || blog.title}</h3>
+                  <p className="text-gray-600 mb-4">{blog.description}</p>
                   <Link to={`/blog/${blog.id}`} className="text-indigo-600 font-medium hover:text-indigo-800 transition">Read More →</Link>
                 </div>
               </div>

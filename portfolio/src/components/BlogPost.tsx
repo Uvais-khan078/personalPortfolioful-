@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'wouter';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Blog {
   id: number;
@@ -12,16 +12,31 @@ interface Blog {
   readTime?: string;
   images?: string[];
   content?: string;
+  content1?: string;
+  content2?: string;
+  content3?: string;
+  content4?: string;
+  content5?: string;
 }
 
 const BlogPost = () => {
   const { id } = useParams<{ id: string }>();
   const [post, setPost] = useState<Blog | null>(null);
   const [loading, setLoading] = useState(true);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://uvaiskhan078.vercel.app';
 
   useEffect(() => {
-    const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://personal-portfolioful.vercel.app';
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        post?.images ? (prevIndex + 1) % post.images.length : 0
+      );
+    }, 5000); // Change image every 5 seconds
 
+    return () => clearInterval(interval);
+  }, [post?.images]);
+
+  useEffect(() => {
     fetch(`${apiBase}/api/blogs`)
       .then(response => response.json())
       .then((blogs: Blog[]) => {
@@ -33,7 +48,7 @@ const BlogPost = () => {
         console.error('Error fetching blog:', error);
         setLoading(false);
       });
-  }, [id]);
+  }, [id, apiBase]);
 
   if (loading) {
     return (
@@ -67,7 +82,7 @@ const BlogPost = () => {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Blog
           </Link>
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">{post.title}</h1>
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">{post.title} - Blog Post</h1>
           <div className="flex items-center text-sm text-gray-500 mb-8">
             <span>{post.date || 'N/A'}</span>
             <span className="mx-2">•</span>
@@ -76,29 +91,88 @@ const BlogPost = () => {
         </div>
       </section>
 
-      {/* Blog Post Images */}
+      {/* Image Carousel */}
       <section className="pb-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-            {post.images?.map((image, index) => (
+          <div className="relative">
+            <div className="overflow-hidden rounded-lg shadow-lg">
               <img
-                key={index}
-                src={image}
-                alt={`${post.title} - Image ${index + 1}`}
-                className="w-full h-48 object-cover rounded-lg shadow-md"
+                src={post.images ? `${apiBase}/${post.images[currentImageIndex]}` : ''}
+                alt={`${post.title} - Image ${currentImageIndex + 1}`}
+                className="w-full h-[500px] object-contain transition-opacity duration-500"
               />
-            )) || []}
+            </div>
+
+            {/* Navigation Buttons */}
+            <button
+              onClick={() => setCurrentImageIndex((prev) =>
+                post?.images ? (prev - 1 + post.images.length) % post.images.length : 0
+              )}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={() => setCurrentImageIndex((prev) =>
+                post?.images ? (prev + 1) % post.images.length : 0
+              )}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+
+            {/* Image Indicators */}
+            <div className="flex justify-center mt-4 space-x-2">
+              {post.images?.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`w-3 h-3 rounded-full transition ${
+                    index === currentImageIndex ? 'bg-indigo-600' : 'bg-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Blog Post Content */}
-      <section className="pb-20">
+      {/* First Paragraph */}
+      <section className="pb-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className="prose prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: post.content || '' }}
-          />
+          <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            {post.content1}
+          </p>
+        </div>
+      </section>
+
+      {/* Second Paragraph */}
+      <section className="pb-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            {post.content2}
+          </p>
+        </div>
+      </section>
+      <section className="pb-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            {post.content3}
+          </p>
+        </div>
+      </section>
+      <section className="pb-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            {post.content4}
+          </p>
+        </div>
+      </section>
+      <section className="pb-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            {post.content5}
+          </p>
         </div>
       </section>
     </div>

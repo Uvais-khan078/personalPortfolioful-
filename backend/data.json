@@ -219,29 +219,5 @@
       "description": "A minimal HTML and CSS page built to practice typography and layout design.",
       "technologies": ["HTML", "CSS"]
     }
-  ],
-  "blogs": [
-    {
-      "id": 1,
-      "title": "My NHPC Internship Experience: Building Real-World Software with ASP.NET Core MVC",
-      "description": "During my internship at NHPC Limited, I gained real-world exposure to enterprise-level software development. My primary responsibility was developing an Internal Complaint Management System using ASP.NET Core MVC and Oracle Database.",
-      "image": "images/blog1.png",
-      "link": "https://uvaiskhan078.vercel.app/",
-      "content": "During my internship at NHPC Limited, I gained real-world exposure to enterprise-level software development. My primary responsibility was developing an Internal Complaint Management System using ASP.NET Core MVC and Oracle Database. The project aimed to digitalize maintenance and employee issue tracking across departments. Working with experienced developers taught me the importance of secure coding, modular architecture, and proper database integration. I also learned about deployment pipelines and UI optimization for internal tools. This experience strengthened my understanding of backend systems, database management, and the practical aspects of cybersecurity implementation.",
-      "date": "2025-09-01",
-      "readTime": "5 min read"
-    }
-  ],
-  "blogPosts": {
-    "1": {
-      "title": "Blog Post 1",
-      "content": "Content",
-      "date": "2023-01-01"
-    },
-    "2": {
-      "title": "My NHPC Internship Experience: Building Real-World Software with ASP.NET Core MVC",
-      "content": "During my internship at NHPC Limited, I gained real-world exposure to enterprise-level software development. My primary responsibility was developing an Internal Complaint Management System using ASP.NET Core MVC and Oracle Database. The project aimed to digitalize maintenance and employee issue tracking across departments. Working with experienced developers taught me the importance of secure coding, modular architecture, and proper database integration. I also learned about deployment pipelines and UI optimization for internal tools. This experience strengthened my understanding of backend systems, database management, and the practical aspects of cybersecurity implementation.",
-      "date": "2025-09-01"
-    }
-  }
+  ]
 }
