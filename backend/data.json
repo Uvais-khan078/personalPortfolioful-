@@ -91,9 +91,9 @@
       {"name": "Project Management", "percentage": "80"},
       {"name": "Problem Solving", "percentage": "90"},
       {"name": "Team Collaboration", "percentage": "85"},
-      {"name": "Leadership", "percentage": "75"},
+      {"name": "Leadership", "percentage": "85"},
       {"name": "Communication", "percentage": "85"},
-      {"name": "Public Speaking", "percentage": "80"},
+      {"name": "Public Speaking", "percentage": "90"},
       {"name": "Attention to Detail", "percentage": "90"}
     ]
   },
