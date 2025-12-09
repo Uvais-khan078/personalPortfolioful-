@@ -10,6 +10,10 @@ CORS(app, origins=[os.getenv('CLIENT_URL', '*')], supports_credentials=True)  # 
 with open('data.json', 'r') as f:
     data = json.load(f)
 
+# Load blogs from blogs.json
+with open('blogs.json', 'r', encoding='utf-8') as f:
+    blogs_data = json.load(f)
+
 @app.route('/api/personal', methods=['GET'])
 def get_personal():
     return jsonify(data['personal'])
@@ -26,15 +30,19 @@ def get_skills():
 def get_projects():
     return jsonify(data['projects'])
 
+@app.route('/api/basicProjects', methods=['GET'])
+def get_basic_projects():
+    return jsonify(data['basicProjects'])
+
 @app.route('/api/blogs', methods=['GET'])
 def get_blogs():
-    return jsonify(data['blogs'])
+    return jsonify(blogs_data['blogs'])
 
 @app.route('/api/blog-posts/<int:post_id>', methods=['GET'])
 def get_blog_post(post_id):
-    post = data['blogPosts'].get(str(post_id))
-    if post:
-        return jsonify(post)
+    for blog in blogs_data['blogs']:
+        if blog['id'] == post_id:
+            return jsonify(blog)
     return jsonify({'error': 'Post not found'}), 404
 
 @app.route('/api/social', methods=['GET'])
@@ -47,6 +55,13 @@ def download_cv():
         return send_file('docs/cv.pdf', as_attachment=True, download_name='Uvais_Khan_CV.pdf')
     except FileNotFoundError:
         return jsonify({'error': 'CV file not found'}), 404
+
+@app.route('/images/<path:filename>', methods=['GET'])
+def get_image(filename):
+    try:
+        return send_file(f'images/{filename}')
+    except FileNotFoundError:
+        return jsonify({'error': 'Image not found'}), 404
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)

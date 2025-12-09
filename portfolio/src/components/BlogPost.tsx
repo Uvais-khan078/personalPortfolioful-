@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'wouter';
 import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface Blog {
   id: number;
@@ -17,6 +19,8 @@ interface Blog {
   content3?: string;
   content4?: string;
   content5?: string;
+  disclaimer?: boolean;
+  disclaimerContent?: string;
 }
 
 const BlogPost = () => {
@@ -137,42 +141,43 @@ const BlogPost = () => {
         </div>
       </section>
 
-      {/* First Paragraph */}
+      {/* Blog Content */}
       <section className="pb-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-lg text-gray-700 leading-relaxed mb-8">
-            {post.content1}
-          </p>
-        </div>
-      </section>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-72 xl:px-80 prose prose-xl max-w-none">
+          {post.content1 && (
+            <div className="mb-8">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content1}</ReactMarkdown>
+            </div>
+          )}
+          {post.content2 && (
+            <div className="mb-8">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content2}</ReactMarkdown>
+            </div>
+          )}
+          {post.content3 && (
+            <div className="mb-8">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content3}</ReactMarkdown>
+            </div>
+          )}
+          {post.content4 && (
+            <div className="mb-8">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content4}</ReactMarkdown>
+            </div>
+          )}
+          {post.content5 && (
+            <div className="mb-8">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content5}</ReactMarkdown>
+            </div>
+          )}
 
-      {/* Second Paragraph */}
-      <section className="pb-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-lg text-gray-700 leading-relaxed mb-8">
-            {post.content2}
-          </p>
-        </div>
-      </section>
-      <section className="pb-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-lg text-gray-700 leading-relaxed mb-8">
-            {post.content3}
-          </p>
-        </div>
-      </section>
-      <section className="pb-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-lg text-gray-700 leading-relaxed mb-8">
-            {post.content4}
-          </p>
-        </div>
-      </section>
-      <section className="pb-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-lg text-gray-700 leading-relaxed mb-8">
-            {post.content5}
-          </p>
+          {/* Disclaimer */}
+          {post.disclaimer && post.disclaimerContent && (
+            <div className="mt-12 p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 rounded-r-lg">
+              <p className="text-sm italic">
+                {post.disclaimerContent}
+              </p>
+            </div>
+          )}
         </div>
       </section>
     </div>

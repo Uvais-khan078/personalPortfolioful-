@@ -36,6 +36,7 @@ function App() {
   const [personal, setPersonal] = useState<Partial<Personal>>({});
   const [social, setSocial] = useState<Partial<Social>>({});
   const [dataError, setDataError] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://uvaiskhan078.vercel.app';
@@ -88,13 +89,66 @@ function App() {
                 <Link href="/blog" className="text-gray-700 hover:text-indigo-600 transition">Blog</Link>
               </div>
               <div className="md:hidden flex items-center">
-                <button className="mobile-menu-button">
-                  <i data-feather="menu"></i>
+                <button
+                  className="mobile-menu-button"
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                >
+                  <Menu className="w-6 h-6" />
                 </button>
               </div>
             </div>
           </div>
         </nav>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden fixed top-16 left-0 w-full bg-white shadow-lg z-40">
+            <div className="px-4 py-4 space-y-4">
+              <a
+                href="/"
+                className="block text-gray-700 hover:text-indigo-600 transition"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Home
+              </a>
+              <a
+                href="#about"
+                className="block text-gray-700 hover:text-indigo-600 transition"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                About
+              </a>
+              <a
+                href="#projects"
+                className="block text-gray-700 hover:text-indigo-600 transition"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Projects
+              </a>
+              <a
+                href="#skills"
+                className="block text-gray-700 hover:text-indigo-600 transition"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Skills
+              </a>
+              <a
+                href="#contact"
+                className="block text-gray-700 hover:text-indigo-600 transition"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact
+              </a>
+              <Link
+                href="/blog"
+                className="block text-gray-700 hover:text-indigo-600 transition"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Blog
+              </Link>
+            </div>
+          </div>
+        )}
 
         {/* Main Content */}
         <Switch>

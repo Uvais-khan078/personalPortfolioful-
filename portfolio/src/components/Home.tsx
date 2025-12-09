@@ -207,7 +207,7 @@ const Home = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-24">
           <div className="flex flex-col md:flex-row items-center justify-center gap-12">
             <div className="md:w-1/3" data-aos="fade-right">
-              <img src={`${apiBase}/images/${personal.image ? personal.image.split('/')[1] : ''}`} alt="Profile" className="rounded-full w-64 h-64 object-cover mx-auto shadow-lg border-4 border-white" />
+                <img src={`${apiBase}/images/${personal.image}`} alt="Profile" className="rounded-full w-64 h-64 object-cover mx-auto shadow-lg border-4 border-white" />
             </div>
             <div className="md:w-2/3 text-center md:text-left">
               <h1 className="text-5xl md:text-6xl font-bold mb-4" data-aos="fade-up">Hi, I'm <span className="text-indigo-200">{personal.name}</span></h1>
@@ -236,7 +236,7 @@ const Home = () => {
           </div>
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/3 mb-10 md:mb-0" data-aos="fade-right">
-              <img src={`${apiBase}/images/${personal.aboutImage ? personal.aboutImage.split('/')[1] : personal.image ? personal.image.split('/')[1] : ''}`} alt="Profile" className="rounded-full w-64 h-64 object-cover mx-auto shadow-lg" />
+              <img src={`${apiBase}/images/${personal.aboutImage || personal.image}`} alt="Profile" className="rounded-full w-64 h-64 object-cover mx-auto shadow-lg" />
             </div>
             <div className="md:w-2/3 md:pl-16" data-aos="fade-left">
               <h3 className="text-2xl font-semibold text-gray-800 mb-4">Who am I?</h3>
