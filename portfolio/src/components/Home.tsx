@@ -299,6 +299,17 @@ const Home = () => {
                     </div>
                     <p className="text-gray-600 mb-2">{item.institution} • {item.duration}</p>
                     <p className="text-gray-600">{item.description}</p>
+                    {item.title && item.title.toLowerCase().includes('b.tech') && (
+                      <div className="mt-4">
+                        <div className="" style={{ transform: 'scale(0.90)' }}>
+                          <iframe
+                            src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=5678189"
+                            style={{ border: 'none', width: '330px', height: '140px' }}
+                            title="TryHackMe Badge"
+                          />
+                        </div>
+                      </div>
+                    )}
                   </div>
                   <div className="hidden md:block absolute top-6 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-indigo-600 rounded-full z-20"></div>
                 </div>
