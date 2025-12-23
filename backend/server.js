@@ -22,7 +22,7 @@ app.use(express.json());
 // Serve static images
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-// Load data
+// Load primary data
 const dataPath = path.join(__dirname, 'data.json');
 let data;
 
@@ -30,6 +30,17 @@ try {
   data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 } catch (error) {
   console.error('Error loading data.json:', error);
+  process.exit(1);
+}
+
+// Load blogs data (separate file)
+const blogsPath = path.join(__dirname, 'blogs.json');
+let blogsData;
+
+try {
+  blogsData = JSON.parse(fs.readFileSync(blogsPath, 'utf8'));
+} catch (error) {
+  console.error('Error loading blogs.json:', error);
   process.exit(1);
 }
 
@@ -51,12 +62,12 @@ app.get('/api/projects', (req, res) => {
 });
 
 app.get('/api/blogs', (req, res) => {
-  res.json(data.blogs);
+  res.json(blogsData.blogs || []);
 });
 
 app.get('/api/blog/:id', (req, res) => {
   const { id } = req.params;
-  const blogPost = data.blogPosts[id];
+  const blogPost = (blogsData.blogs || []).find(b => String(b.id) === String(id));
   if (blogPost) {
     res.json(blogPost);
   } else {
