@@ -105,8 +105,8 @@ Suggestions and improvements are welcome!
 If you’d like to collaborate, hire me, or give feedback:
 
 - **GitHub:** https://github.com/Uvais-khan078  
-- **LinkedIn:** _Add your LinkedIn link_  
-- **Email:** _Add your email_
+- **LinkedIn:** https://www.linkedin.com/in/mohd-uvais-wali-khan-56696a236 
+- **Email:** Uvaiswalikhan@gmail.com
 
 ---
 
