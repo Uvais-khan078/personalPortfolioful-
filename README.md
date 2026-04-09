@@ -5,8 +5,8 @@ A modern, responsive personal portfolio website built to showcase my **projects,
 ---
 
 ## Live Demo
-- **Website:** _Add your deployed link here (Vercel / Netlify / GitHub Pages)_
-- **Portfolio Preview:** _Add screenshots or a short GIF here_
+- **Website:** https://uvaiskhan078.vercel.app
+- **Portfolio Preview:** _screenshots or a short GIF here_
 
 ---
 
