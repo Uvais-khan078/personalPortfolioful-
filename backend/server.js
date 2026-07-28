@@ -3,11 +3,20 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
+
+const allowedOrigins = new Set([
+  'https://uvaiskhan078.vercel.app',
+  'http://localhost:5173',
+  'http://127.0.0.1:5173'
+]);
 
 // Middleware
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://uvaiskhan078.vercel.app');
+  const origin = req.headers.origin;
+  if (origin && allowedOrigins.has(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
   if (req.method === 'OPTIONS') {
@@ -59,6 +68,10 @@ app.get('/api/skills', (req, res) => {
 
 app.get('/api/projects', (req, res) => {
   res.json(data.projects);
+});
+
+app.get('/api/basicProjects', (req, res) => {
+  res.json(data.basicProjects || []);
 });
 
 app.get('/api/blogs', (req, res) => {
