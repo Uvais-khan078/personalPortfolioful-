@@ -146,7 +146,7 @@
       "description": "A web-based security scanner that detects vulnerabilities such as SQL injection and XSS. Generates detailed reports and stores results in PostgreSQL. Built with strong emphasis on code security and accessibility.",
       "image": "images/riskscanner.png",
       "technologies": ["React", "Flask", "PostgreSQL", "TypeScript"],
-      "link": "https://b03d144f-5569-4347-ae2e-f10ee572f295-00-172j77ns5rees.sisko.replit.dev/",
+      "link": "https://security-risk-scanner--uvaiswalikhan.replit.app/",
       "githubLink": "https://replit.com/@uvaiswalikhan/SecurityRiskScanner"
     },
     {
