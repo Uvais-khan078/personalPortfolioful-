@@ -67,8 +67,7 @@ for proj in data['projects']:
         description=proj['description'],
         technologies=proj['technologies'],
         image=proj['image'],
-        demo_link=proj['demoLink'],
-        github_link=proj['githubLink']
+        github_link=proj.get('githubLink')
     )
     db.add(project)
 

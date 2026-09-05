@@ -106,65 +106,66 @@
   "projects": [
     {
       "id": 1,
+      "title": "Meezan",
+      "description": "Meezan is a Kotlin-based Android productivity app that helps users balance prayer routines, habits, goals, and personal finances in one secure dashboard. Built with Jetpack Compose and encrypted local storage, it offers smart planning, biometric-protected finance access, and insightful monthly analytics for a more focused lifestyle.",
+      "image": "images/meezan.jpeg",
+      "technologies": ["Kotlin", "Jetpack Compose", "Room", "SQLCipher", "MVVM", "Retrofit", "Biometric API", "AlarmManager", "WorkManager", "Vico Charts"],
+      "githubLink": "https://github.com/Uvais-khan078/mezaan"
+    },
+    {
+      "id": 2,
       "title": "Village360",
       "description": "A full-stack rural development analytics platform deployed on Vercel. It collects and visualizes data about village demographics, resources, and progress indicators. Built with a modern TypeScript frontend and Python backend, it offers dashboards for government agencies and NGOs to monitor village development in real-time.",
       "image": "images/village360.png",
       "technologies": ["TypeScript", "React", "Tailwind CSS", "Python", "Vercel"],
-      "link": "https://village360.vercel.app",
       "githubLink": "https://github.com/Uvais-khan078/village360"
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "CivicSense",
       "description": "A smart civic issue reporting and management platform built with React + Vite. It allows citizens to log complaints about civic infrastructure such as waste collection, streetlights, and road maintenance. The system includes categorized issue tracking, real-time status updates, and an admin dashboard for efficient resolution.",
       "image": "images/civicsense.png",
       "technologies": ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
-      "link": "#",
       "githubLink": "https://github.com/Uvais-khan078/civicSense"
     },
     {
-      "id": 3,
+      "id": 4,
       "title": " Internal Complaint Management System",
       "description": "A real-world project developed during internship at NHPC. Built using ASP.NET Core MVC with Oracle Express Database, featuring secure login, complaint tracking, and notification management.",
       "image": "images/complaintsys.png",
       "technologies": ["ASP.NET Core MVC", "Oracle Database", "Bootstrap", "C#"],
-      "link": "#",
       "githubLink": "https://github.com/Uvais-khan078/ICMS-nhpc"
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "CarbonZero",
       "description": "A solar power plant monitoring and management system built with ASP.NET Core MVC. It enables tracking of solar output, equipment performance, and maintenance schedules with real-time visualizations. Features include admin and technician dashboards, data logs, and system analytics to help optimize power efficiency.",
       "image": "images/carbon0.png",
       "technologies": ["ASP.NET Core MVC", "C#", "HTML", "CSS", "Tailwind CSS", "JavaScript"],
-      "link": "#",
       "githubLink": "https://github.com/Uvais-khan078/CarbonZero"
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "SecurityRiskScanner",
       "description": "A web-based security scanner that detects vulnerabilities such as SQL injection and XSS. Generates detailed reports and stores results in PostgreSQL. Built with strong emphasis on code security and accessibility.",
       "image": "images/riskscanner.png",
       "technologies": ["React", "Flask", "PostgreSQL", "TypeScript"],
-      "link": "https://security-risk-scanner--uvaiswalikhan.replit.app/",
       "githubLink": "https://replit.com/@uvaiswalikhan/SecurityRiskScanner"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "FitLife",
       "description": "A health tracking app built with React.js for monitoring sleep, workouts, and water intake. Features responsive UI and animated data visualizations using Chart.js.",
       "image": "images/fitlife.png",
       "technologies": ["React", "Tailwind CSS", "Chart.js", "Local Storage"],
-      "link": "#",
       "githubLink": "https://github.com/Uvais-khan078/FitLife"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "RiverGuard",
       "description": "A comprehensive dashboard system for monitoring and safeguarding river health. Includes user authentication, admin management, and real-time data visualization using Flask and PostgreSQL.",
       "image": "images/riverGaurd.png",
       "technologies": ["Flask", "PostgreSQL", "React", "Tailwind CSS", "Chart.js"],
-      "link": "#",
       "githubLink": "https://github.com/Uvais-khan078/riverguard"
     }
   ],

@@ -156,7 +156,6 @@ function App() {
           <Route path="/projects" component={Projects} />
           <Route path="/blog" component={Blog} />
           <Route path="/blog/:id" component={BlogPost} />
-          <Route path="/under-development" component={UnderDevelopmentPage} />
           <Route component={() => <ErrorPage errorType="404" />} />
         </Switch>
 

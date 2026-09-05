@@ -41,7 +41,6 @@ class Project(Base):
     description = Column(Text)
     technologies = Column(JSON)
     image = Column(String(255))
-    demo_link = Column(String(255))
     github_link = Column(String(255))
 
 class Blog(Base):

@@ -5,8 +5,6 @@ interface Project {
   image: string;
   description: string;
   technologies: string[];
-  link?: string;
-  demoLink?: string;
   githubLink?: string;
 }
 
@@ -18,18 +16,6 @@ interface ProjectModalProps {
 
 const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, project }) => {
   if (!isOpen || !project) return null;
-
-  const handleDemoClick = () => {
-    if (project.link && project.link !== 'https://project.com' && project.link !== '#') {
-      window.open(project.link, '_blank', 'noopener,noreferrer');
-    } else {
-      // Store GitHub link in localStorage and redirect to under development page
-      if (project.githubLink && project.githubLink !== 'https://project.com' && project.githubLink !== '#') {
-        localStorage.setItem('currentProjectGithub', project.githubLink);
-      }
-      window.location.href = '/under-development';
-    }
-  };
 
   const handleGithubClick = () => {
     if (project.githubLink && project.githubLink !== 'https://project.com' && project.githubLink !== '#') {
@@ -60,12 +46,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, project })
             ))}
           </div>
           <div className="flex gap-4">
-            <button
-              onClick={handleDemoClick}
-              className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition"
-            >
-              View Demo
-            </button>
             <button
               onClick={handleGithubClick}
               disabled={!project.githubLink || project.githubLink === 'https://project.com' || project.githubLink === '#'}
